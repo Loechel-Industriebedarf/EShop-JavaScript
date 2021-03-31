@@ -1,0 +1,7 @@
+/*
+Hinweis beim Checkout für AT-Kunden
+*/
+.nw_login__form.nw_login__form-login::after {
+    content: "Sehr geehrte Kunden aus Österreich! \A \A Derzeit besteht für Kunden ausserhalb von Deutschland leider nicht die Möglichkeit über unseren E-Shop direkt zu bestellen. Wir arbeiten zügig an einer Lösung. Daher bitten wir Sie, bis dahin via E-Mail oder telefonisch zu bestellen. \A \A Wir bitten, die Unannehmlichkeiten zu entschuldigen.";
+	white-space: break-spaces;
+}
