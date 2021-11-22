@@ -14,9 +14,6 @@ try{
 		if (document.querySelector('.is-in-stock') !== null && $( ".is-in-stock" ).first().text().indexOf("Sulingen") >= 0){
 		   lieferzeitentext = lieferzeitentext.replace(/[0-9]+/g, "3"); //Wenn die Ware auf Lager ist, wird die Lieferzeit auf 3 Tage gesetzt
 		} 
-		else if(document.querySelector('.is-not-available') == null){
-			lieferzeitentext = lieferzeitentext.replace(/[0-9]+/g, "4"); //Wenn die Ware bei NW auf Lager ist, wird die Lieferzeit auf 4 Tage gesetzt
-		}
 		if(window.location.pathname !== "/"){
 			$( ".nw_delivery-status" ).append( "<p>"+lieferzeitentext+"</p>" ); //Die Lieferzeiten an die Klasse anhängen
 		}
