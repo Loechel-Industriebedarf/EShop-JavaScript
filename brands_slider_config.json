@@ -1,0 +1,14 @@
+{ 
+"dots": false, 
+"infinite": true, 
+"mobileFirst": true,
+"lazyLoad": "ondemand",
+"slidesToScroll": 1,
+"autoplay": true,
+"autoplaySpeed": 1000,
+"centerMode": true,
+"variableWidth": true,
+"arrows":true,
+"nextArrow":"<img class='a-right control-c next slick-next' src='https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Rechts.png'>",
+"prevArrow":"<img class='a-right control-c next slick-prev' src='https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Links.png'>"
+}

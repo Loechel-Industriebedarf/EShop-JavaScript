@@ -1,0 +1,57 @@
+{
+ "dots": false, 
+ "infinite": true,
+ "lazyLoad": "ondemand",
+ "rows":3,
+ "slidesPerRow":7,
+ "nextArrow":"<img class='a-right control-c next slick-next' src='https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Rechts.png'>",
+"prevArrow":"<img class='a-right control-c next slick-prev' src='https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Links.png'>",
+ "responsive": [
+				{
+                  "breakpoint": 9999,
+                  "settings": {
+						"rows":3,
+						"slidesPerRow":7
+                  }
+                },
+                {
+                  "breakpoint": 1650,
+                  "settings": {
+						"rows":3,
+						"slidesPerRow":4
+                  }
+                },
+				{
+                  "breakpoint": 1400,
+                  "settings": {
+						"mobileFirst": true,
+						"rows":3,
+						"slidesPerRow":4
+                  }
+                },
+				{
+                  "breakpoint": 1024,
+                  "settings": {
+						"mobileFirst": true,
+						"rows":4,
+						"slidesPerRow":3
+                  }
+                },
+				{
+                  "breakpoint": 1023,
+                  "settings": {
+						"mobileFirst": true,
+						"rows":3,
+						"slidesPerRow":2
+                  }
+                },
+				{
+                  "breakpoint": 0,
+                  "settings": {
+						"mobileFirst": true,
+						"rows":3,
+						"slidesPerRow":2
+                  }
+                }
+              ]
+}
