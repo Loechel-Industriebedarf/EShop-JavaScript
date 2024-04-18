@@ -22,6 +22,11 @@ body{
 /* Bigger h6 */
 h6{
 	font-size: 2rem;
+	font-weight: 500 !important;
+}
+.nw_page-title h1{
+	font-size: 4rem !important;
+	letter-spacing: 0.05rem;
 }
 
 
@@ -99,6 +104,10 @@ h6{
 }
 .nw_single-input-form{ /* Fix for mobile searchbar size */
 	width: 90%;
+}
+/* Bolder menu text */
+.nw_header-submenus{
+	font-weight: 500;
 }
 
 
@@ -275,16 +284,20 @@ h6{
 
 
 /********************************************
- Sidebar - Currently unused
+ Sidebar - Currently only used on "Services"
 ********************************************/
 .loe_sidebar {
+	display: none;
 	position: fixed;
 	right: 0;
-	z-index: 10003;
+	z-index: 98;
 	background-color: white;
 	border: 1px solid black;
 	border-right: 0;
 	top: 30%;
+	max-width: 30rem;
+	padding: 1rem;
+	color: #373434;
 }
 
 
@@ -383,6 +396,8 @@ Screen style's
 		color: #fff !important;
 		font-size: 16px;
 		line-height: 70px;
+		font-weight: 600;
+		letter-spacing: 0.05rem;
 		img{
 			margin-top: -42px;
 		}
@@ -421,7 +436,7 @@ Screen style's
           float: left;
           a {
             color: #fff !important;
-            padding: .2em 0;
+            padding: .2em 0 0.2em 1em;
             width: 95%;
             display: block;
             border-bottom: 1px solid #ccc;
@@ -463,7 +478,7 @@ Screen style's
             width: 100%;
             a {
               border: 0;
-              padding: 1em 0;
+              padding: 1em 0 1em 1em !important;
             }
           }
         }
@@ -489,10 +504,20 @@ Screen style's
 }
 .menu-loe > ul > li > ul > li > a > p{
 	display: inline-block;
+	font-weight: 500;
 }
 .menu-loe > ul > li > ul > li > a > img{
 	height: 32px;
 	vertical-align: middle;
+}
+.normal-sub > li > a{
+	font-weight: 500;
+}
+.menu-marken-img-container > a{
+	font-weight: 500;
+}
+.menu-loe-container > a > p{
+	font-weight: 500;
 }
 .menu-marken-img-container > a > img{
 	vertical-align: middle;
@@ -505,7 +530,12 @@ Screen style's
 	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
-	padding: 0 0 2em 0;
+	padding: 1em 0 1em 0;
+}
+.menu-loe-container{
+	height: auto !important;
+	vertical-align: middle;
+	padding: 1em 0 1em 1em;
 }
 .menu-markenwelten ul > li > div > a > img{
 	max-height: 100px !important;
@@ -601,4 +631,37 @@ Markenwelten
 	width: 100%; 
 	max-height: 300px;
 	mix-blend-mode: multiply;
+}
+.anchor{
+	position: absolute;
+	visibility: hidden;
+	height: 0px !important;
+	margin-top: -8rem !important;
+}
+
+
+
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––
+Services
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.psa-button{
+	margin: 0.25rem 0 0.25rem 0;
+}
+.psa-button-big{
+	margin-top: 6rem;
+	height: 6rem;
+	width: 75%;
+	font-size: 2.5rem;
+	font-weight: 500;
+	letter-spacing: 0.05rem;
+}
+.nw_button--primary:hover{
+	background-color: #FFF !important;
+}
+.nw_button--primary:disabled{
+	background-color: #8e95a6 !important;
+}
+.nw_button--primary[disabled]:hover{
+	background-color: #8e95a6 !important;
+	color: #FFF !important;
 }

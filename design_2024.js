@@ -123,9 +123,6 @@ Markenwelten
 if(window.location.href == "https://www.loechel-industriebedarf.de/nwsearch/execute?query=brennenstuhl"){ 
 	window.location.replace("https://www.loechel-industriebedarf.de/brennenstuhl-markenwelt");
 } 
-if(decodeURI(window.location.href).toLowerCase().includes("löchel")){ 
-	window.location.replace("https://www.loechel-industriebedarf.de/eigenmarke");
-} 
 
 
 
@@ -134,6 +131,32 @@ Sidebar wegklicken
 *******************************************************/
 function disableLOESidebar(){
 	$('.loe_sidebar').hide();
+}
+function enableLOESidebar(){
+	$('.loe_sidebar').show();
+	
+	var dt = new Date();
+	//var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+	var availability = "";
+	//Mo - Do: 8 - 17 Uhr
+	//Fr: 8 - 16 Uhr
+	if(
+		(dt.getDay() <= 5 && dt.getHours() >= 8 && dt.getHours() < 16) || 
+		(dt.getDay() < 5 && dt.getHours() >= 8 && dt.getHours() < 17)
+	){
+		availability = "Wir sind sofort für Sie verfügbar!";
+		$('#phone').prop("disabled", false);
+		$("#phone").css("background-color", "#096409");
+	}
+	else{
+		availability = "Sie erreichen uns Mo-Do von 08 - 17 Uhr und Freitags von 08 - 16 Uhr.";
+		$('#phone').prop("disabled", true);
+	}
+	
+	//Only publish availability string if it wasn't already shown
+	if($('#phone').get(0).innerHTML.indexOf(availability) <= 0){
+		$('#phone').append("<br />" + availability);
+	}
 }
 
 
