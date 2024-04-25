@@ -19,6 +19,10 @@ body{
 .hidden{
 	visibility: hidden;
 }
+/* Slight padding on h4 (primary for Redaktionelle Inhalte) */
+h4{
+	padding: 1rem 0 0 0.5rem;
+}
 /* Bigger h6 */
 h6{
 	font-size: 2rem;
@@ -28,6 +32,16 @@ h6{
 	font-size: 4rem !important;
 	letter-spacing: 0.05rem;
 }
+.loe-list > li {
+  padding-left: 0.5em;
+  list-style-type: "⚙";
+}
+ .text-center{
+	text-align: center;
+ }
+ blockquote{
+	margin-top: 5rem;
+ }
 
 
 /********************************************
@@ -254,6 +268,37 @@ h6{
 
 
 
+/********************************************
+ Tables
+********************************************/
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #1C3C8D;
+   opacity: 0.85;
+ }
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+   background-color: #2094D2;
+   opacity: 0.85;
+ }
+ .table-li{
+	color: #fff !important;
+	width: 100%;
+	font-weight: 500;
+ }
+ .table-li > tbody > tr > td > a{
+	 color: #fff !important;
+	 font-weight: 500;
+	 text-decoration: underline;
+ }
+ .table-li thead{
+	color: #000 !important;
+ }
+ .table-li tbody > tr:hover{
+	 opacity: 0.6;
+ }
+
 
 /********************************************
  Smaller font for advantage box
@@ -290,7 +335,7 @@ h6{
 	display: none;
 	position: fixed;
 	right: 0;
-	z-index: 98;
+	z-index: 99999;
 	background-color: white;
 	border: 1px solid black;
 	border-right: 0;
@@ -389,6 +434,7 @@ Screen style's
       padding: 0;
       margin: 0;
 	  height: 70px;
+	  list-style-type: none;
       > a {
         text-decoration: none;
         padding: 0 1.5em;
@@ -501,6 +547,9 @@ Screen style's
 }
 .menu > ul > li > ul > li > a:hover{
 	background-color: #1C3C8D;
+}
+.menu-loe > ul > li > ul > li {
+	list-style-type: none;
 }
 .menu-loe > ul > li > ul > li > a > p{
 	display: inline-block;
@@ -664,4 +713,51 @@ Services
 .nw_button--primary[disabled]:hover{
 	background-color: #8e95a6 !important;
 	color: #FFF !important;
+}
+.reda-top-img{
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto !important;
+}
+.row{
+	padding-bottom: 1rem !important;
+}
+.row-diff-bg{
+	background-color: #eee;
+}
+.container-li > div > div > img{
+	mix-blend-mode: multiply;
+}
+@include media-breakpoint-up(xs) {
+	.reda-top-img{
+		margin-top: -10rem !important;
+	}
+}
+@include media-breakpoint-up(sm) {
+	.reda-top-img{
+		margin-top: -11rem !important;
+	}
+}
+
+@include media-breakpoint-up(xs) {
+	.placeholder-reda-top-img{
+		display: none;
+	}
+}
+@include media-breakpoint-up(lg) { /* Only show class on lg or higher */
+	.placeholder-reda-top-img{
+		margin-top: 4rem;
+		display: block;
+	}
+}
+@include media-breakpoint-up(xl) {
+	.placeholder-reda-top-img{
+		margin-top: 9rem;
+	}
+}
+@include media-breakpoint-up(xxl) {
+	.placeholder-reda-top-img{
+		margin-top: 15rem;
+	}
 }
