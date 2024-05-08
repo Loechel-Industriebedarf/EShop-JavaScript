@@ -127,7 +127,7 @@ if(window.location.href == "https://www.loechel-industriebedarf.de/nwsearch/exec
 
 
 /*******************************************************
-Sidebar wegklicken
+Sidebar
 *******************************************************/
 function disableLOESidebar(){
 	$('.loe_sidebar').hide();

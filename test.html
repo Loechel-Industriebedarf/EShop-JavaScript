@@ -1,0 +1,115 @@
+<script type="text/javascript">
+	window.addEventListener('load', function () {
+		$(window).on('scroll', function(){
+		  var s = $(window).scrollTop(),
+			  d = $(document).height(),
+			  c = $(window).height();
+
+		  var scrollPercent = (s / (d - c)) * 100;
+		  
+		  $(".scrolling-img").css("background-position", "0px "+scrollPercent+"%");
+		  console.log(scrollPercent);
+		})
+	})
+	
+	window.addEventListener('load', function () {
+		enableLOESidebar();
+	})
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fredericka+the+Great&family=Rubik+80s+Fade&family=Wavefont:wght@4..1000&display=swap" rel="stylesheet">
+
+<style>
+.bungee-regular {
+  font-family: "Bungee", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.fredericka-the-great-regular {
+  font-family: "Fredericka the Great", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.wavefont-100 {
+  font-family: "Wavefont", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+  font-variation-settings:
+    "ROND" 100,
+    "YELA" -100;
+}
+.rubik-80s-fade-regular {
+  font-family: "Rubik 80s Fade", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+</style>
+
+<div class="container container-li">
+	<div class="row">
+		<img src="https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/services/Platzhalter1920x300.jpg" class="reda-top-img"></img>
+	</div>
+
+
+	<div class="row">
+		<div class="placeholder-reda-top-img"></div>
+	</div>
+
+	<div class="row flex-align">
+		<div class="col push-md-6 col-md-6 li-img-border">
+			<img src="https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/warenausgabesysteme/vorteile.jpg"></img>
+		</div>
+		<div class="col pull-md-6 col-md-6">
+			<h5>Kleinere Überschrift</h5>
+			<h4>Größere Überschrift</h4>
+		
+			<b>Text ist in der Mitte horizontal zentriert mit flex-align</b>
+			<br /><br />
+			Bild hat dank li-img-border einen Rahmen
+			<br /><br />
+			<b>Mit loe-list entstehen Zahnräder vor Aufzählungen</b>
+			<ul class="loe-list">
+				<li>Banner wird über reda-top-img + placeholder-reda-top-img eingebunden</li>
+				<li>enableLOESidebar(); triggert die Sidebar</li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="row placeholder-row"></div>
+		
+	<div class="row row-diff-bg">
+		<div class="col-12">
+			<h4>Überschrift oben</h4>
+		</div>
+		<div class="col col-md-6">
+			<img src="https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/warenausgabesysteme/ectc.jpg"></img>
+		</div>
+		<div class="col col-md-6">
+			Dank row-diff-bg grauer Hintergrund
+			<br /><br />
+			<b>Schriften</b>
+			<ul class="loe-list">
+				<li class="bungee-regular"><h4>bungee</h4></li>
+				<li class="fredericka-the-great-regular"><h4>fredericka-the-great</h4></li>
+				<li class="wavefont-100"><h4>wavefont-100</h4></li>
+				<li class="rubik-80s-fade-regular"><h4>rubik-80s-fade-regular</h4></li>
+			</ul>
+			<p style="text-align: center"><button onclick="window.open('https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/warenausgabesysteme/datenblatt/ectc.pdf', '_blank');" class="nw_button nw_button--primary -filled psa-button" type="submit" style="width: 75%">Inline Button</button></p>
+		</div>
+	</div>
+</div>	
+
+<div class="scrolling-img-container">
+	<div class="scrolling-img">
+		&nbsp; 
+	</div>
+</div>
+
+<div class="scrolling-img-placeholder">&nbsp;</div>
+
+scrolling-img-container + scrolling-img + scrolling-img-placeholder erzeugen ein Bild, welches "mitscrollt"<br>
+test<br>
+test<br>
