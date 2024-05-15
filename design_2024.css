@@ -28,9 +28,19 @@ body{
 .hidden{
 	visibility: hidden;
 }
+/* Custom font */
+h3{
+	font-family: 'Mom\'sTypewriter';
+	hyphens: auto;
+}
 /* Slight padding on h4 (primary for Redaktionelle Inhalte) */
+.nw_product-box__title{
+	font-family: revert !important;
+}
 h4{
 	padding: 1rem 0 0 0.5rem;
+	font-family: 'Mom\'sTypewriter';
+	hyphens: auto;
 }
 /* Bigger h6 */
 h6{
@@ -835,4 +845,20 @@ $scrolling-img-height: 30rem;
 }
 .nw_page-title{
 	display: none !important;
+}
+@font-face{
+	font-family: 'Mom\'sTypewriter';
+    src: url('https://tectree.de/mom.ttf'); /*URL to font*/
+}
+.custom-font{
+	font-family: 'Mom\'sTypewriter';
+}
+
+
+
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––
+Products / Produkte / Artikel
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.nw_tabbed-pane__content-headline{
+	display: none;
 }
