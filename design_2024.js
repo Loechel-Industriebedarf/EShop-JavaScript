@@ -218,8 +218,15 @@ $(document).ready(function() {
 
   $(".menu > ul > li").hover(function(e) {
     if ($(window).width() > 943) {
-      $(this).children("ul").stop(true, false).fadeToggle(150);
-      e.preventDefault();
+		console.log($(this).children("ul").is(":visible"));
+		if($(this).children("ul").is(":visible")){
+			$(this).children("ul").stop(true, false).fadeOut(150);
+		}
+		else{
+			$(this).children("ul").stop(true, false).fadeIn(150);
+		}
+		
+		e.preventDefault();
     }
   });
   //If width is more than 943px dropdowns are displayed on hover
