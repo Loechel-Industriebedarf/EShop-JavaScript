@@ -25,7 +25,12 @@ $(document).ready(function() {
 			$(this).children("ul").stop(true, false).fadeOut(150);
 		}
 		else{
-			$(this).children("ul").stop(true, false).fadeOut(15);
+			var megamenuItems = $(".megamenu");
+			//Hide ALL megamenus (failsave)
+			for(var i=0; i<megamenuItems.length; i++){
+				console.log(megamenuItems[i].style.display);
+				megamenuItems[i].style.display = "none";
+			}
 			$(this).children("ul").stop(true, false).fadeIn(150);
 		}
 		
