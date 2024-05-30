@@ -11,3 +11,23 @@
 "nextArrow":"<img class='a-right control-c next slick-next' src='https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Rechts.png'>",
 "prevArrow":"<img class='a-right control-c next slick-prev' src='https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Links.png'>"
 }
+
+
+{
+	"effect": "slide",
+	"centeredSlides": true,
+	"slidesPerView": "2",
+	"grabCursor": true,
+	"autoplay": {
+		"delay": 5000,
+		"pauseOnMouseEnter": true
+	},
+	"keyboard": {
+		"enabled": true,
+		"onlyInViewport": false
+	},
+	"loop": true,
+	"centeredSlides": true,
+	"lazyPreloadPrevNext": 1,
+	"slidesPerView": "auto"
+}

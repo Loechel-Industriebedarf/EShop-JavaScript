@@ -1,8 +1,9 @@
 /********************************************
  Variables
 ********************************************/
-$color1: #1C3C8D;
-$color2: #2094D2;
+$primary_col: #1C3C8D;
+$highlight_col: #2094D2;
+$neutral_col: #373434;
 
 
 
@@ -30,7 +31,7 @@ body{
 }
 /* Custom font */
 h3{
-	font-family: 'Mom\'sTypewriter';
+	/* font-family: 'Mom\'sTypewriter'; */
 	hyphens: auto;
 }
 /* Slight padding on h4 (primary for Redaktionelle Inhalte) */
@@ -48,8 +49,14 @@ h6{
 	font-weight: 500 !important;
 }
 .nw_page-title h1{
-	font-size: 4rem !important;
+	font-size: 2rem !important;
 	letter-spacing: 0.05rem;
+}
+@include media-breakpoint-down(sm) {
+	.nw_page-title h1{
+		font-size: 1.5rem !important;
+		letter-spacing: 0.05rem;
+	}
 }
 .loe-list > li {
   padding-left: 0.5em;
@@ -73,7 +80,7 @@ h6{
 }
 /* Blue search; White search icons */
 .nw_search-input{
-	background-color: $color1 !important;
+	background-color: $primary_col !important;
 	fill: #FFFFFF !important;
 }
 /* White header text */
@@ -102,7 +109,7 @@ h6{
 /* Smaller gap between header and content */
 .nw_page-section__page-top--home {
 	padding-top: 0rem !important;
-	margin-top: -0.5rem !important;
+	margin-top: 0rem !important;
 }
 /* Size of logo */
 .logo{
@@ -170,18 +177,26 @@ h6{
 .nw_content-box__body{
 	padding: 0rem !important;
 }
-.container-fluid {
-	padding-left: 0px !important;
-	padding-right: 0px !important;
+.nw_stage-swiper-box{
+	margin-left: -1.5rem;
+	margin-right: -2.5rem;
 }
+
 /* Categories Background, hover and slightly more transparent overlay */
-.nw_category-box__image {
-	background: $color2;
+.nw_category-box__overlay {
+	z-index: 11;
+	position: relative;
+}
+.nw_category-box__wrapper {
+	overflow: hidden;
+}
+.loe-brands > section > div > div > div > div > div > div > div > div > a > div{
+	background: $highlight_col;
 	background: -webkit-gradient(linear, left top, left bottom, from(#2ac0ff), to(#1a76a8));
     background: -moz-linear-gradient(top, #2ac0ff, #1a76a8);
     background: linear-gradient(to bottom, #2ac0ff, #1a76a8);
 }
-.nw_category-box__image:hover {
+.loe-brands > section > div > div > div > div > div > div > div > div > a > div:hover{
 	background: #32e6ff;
 	background: -webkit-gradient(linear, left top, left bottom, from(#32e6ff), to(#1f8eca));
     background: -moz-linear-gradient(top, #32e6ff, #1f8eca);
@@ -190,29 +205,39 @@ h6{
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
-.nw_category-box__overlay {
-	opacity: 0.8 !important;
-}
-.nw_category-box__wrapper {
-	overflow: hidden;
-}
 .nw_category-box__image:hover{
 	-webkit-transition: .3s ease-in-out;
 	transition: .5s ease-in-out;
 	-webkit-transform: scale(1.05);
-	transform: scale(1.05);
+	transform: scale(1.05);	
 }
 .nw_category-box__image {
 	transition: 0.5s all ease-in-out;
 }
 /* Headlines in uppercase, bold and aligned left */
-.headline {
+.headline, .-free-headline > div > h2 {
 	text-align: left !important;
 	color: black !important;
-	font-size: 3.4rem !important;
+	
 	font-weight: 700 !important;
 	font-family: "Gill Sans", sans-serif;
 	text-transform: uppercase;
+	float: left;
+	text-wrap: balance;
+}
+@include media-breakpoint-up(xs) {
+	.headline, .-free-headline > div > h2 {
+		font-size: 2rem !important;
+	}
+}
+@include media-breakpoint-up(md) {
+	.headline, .-free-headline > div > h2 {
+		font-size: 3.4rem !important;
+	}
+}
+.nw_search__history > li{
+	font-size: 1rem !important;
+	float: none !important;
 }
 /* Brands: Greyscale => non grayscale on hove r*/
 .nw_brands-banner__image {
@@ -256,7 +281,7 @@ h6{
 }
 .slick-dots li button::before {
 	font-size: 14px !important;
-	color: $color1 !important;
+	color: $primary_col !important;
 }
 .slick-active button::before{
 	opacity: 1 !important;
@@ -268,15 +293,15 @@ h6{
 	opacity: 0.8;
 	filter: grayscale(0.25);
 }
-@include media-breakpoint-up(xl) { /* On Desktop: Only display arrows on hover  */
-	.slick-slider{
-		.slick-arrow{
+@include media-breakpoint-up(xl) { /* On Desktop: Only display arrows and pagination on hover  */
+	.swiper{
+		.swiper-button-prev, .swiper-button-next, .swiper-pagination-bullet, .swiper-pagination-bullet-active{
 			visibility: hidden;
 			opacity: 0;
 			transition: visibility 0s, opacity 0.5s linear;
 		}
 		&:hover{
-			.slick-arrow{
+			.swiper-button-prev, .swiper-button-next, .swiper-pagination-bullet, .swiper-pagination-bullet-active{
 				visibility: visible;
 				opacity: 0.8;
 				transition: visibility 0s, opacity 0.5s linear;
@@ -293,18 +318,21 @@ h6{
 
 .table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: $color1;
+   background-color: $primary_col;
+   color: #fff !important;
    opacity: 0.85;
  }
 .table-striped>tbody>tr:nth-child(even)>td, 
 .table-striped>tbody>tr:nth-child(even)>th {
-   background-color: $color2;
+   background-color: $highlight_col;
+   color: #fff !important;
    opacity: 0.85;
  }
  .table-li{
 	color: #fff !important;
 	width: 100%;
 	font-weight: 500;
+	border-collapse: collapse !important;
  }
  .table-li > tbody > tr > td > a{
 	 color: #fff !important;
@@ -358,8 +386,8 @@ h6{
 	background-color: white;
 	border: 1px solid black;
 	border-right: 0;
-	top: 30%;
-	max-width: 30rem;
+	top: 25%;
+	max-width: 20rem;
 	padding: 1rem;
 	color: #373434;
 }
@@ -377,8 +405,9 @@ Megamenu
 }
 
 .nw_header__main-navigation{
-	display: none;
+	display: none !important;
 }
+
 
 
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -399,6 +428,11 @@ Screen style's
 .menu-mobile {
   display: none;
   padding: 20px;
+  bottom: 0;
+  background-image: url("https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/logo_klein_sw_loechel.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-decoration: none !important;
   &:after {
     content: "\f0c9";
     font: var(--fa-font-solid);
@@ -468,18 +502,19 @@ Screen style's
 		}
       }		  
       &:hover {
-        background: $color1;
+        background: $primary_col;
       }
       > ul {
         display: none;
         width: 100%;
-        background: $color2;
+        background: $highlight_col;
         padding: 20px;
         position: fixed;
         z-index: 99;
         left: 0;
         margin: 0;
 		margin-top: -5px;
+		top: 10rem;
         list-style: none;
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
@@ -506,6 +541,7 @@ Screen style's
             display: block;
             border-bottom: 1px solid #ccc;
 			font-size: 16px;
+			text-decoration: none;
           }
           > ul {
             display: block;
@@ -531,6 +567,7 @@ Screen style's
               font-size: .8em;
               a {
                 border: 0;
+				text-decoration: none;
               }
             }
           }
@@ -556,16 +593,16 @@ Screen style's
   display: inline;
 }
 .menu > ul > li > ul > li > ul > li > div:hover{
-	background-color: $color1;
+	background-color: $primary_col;
 	.menu > ul > li > ul > li > ul > li{
 		background-color: transparent;
 	}
 }
 .menu > ul > li > ul > li > ul > li:hover{
-	background-color: $color1;
+	background-color: $primary_col;
 }
 .menu > ul > li > ul > li > a:hover{
-	background-color: $color1;
+	background-color: $primary_col;
 }
 .menu-loe > ul > li > ul > li {
 	list-style-type: none;
@@ -647,7 +684,7 @@ Mobile style's
 		  line-height: unset !important;
         }
         > ul {
-          position: relative;
+          position: inherit;
 		  margin-top: 0px;
           &.normal-sub {
             width: 100%;
@@ -684,7 +721,15 @@ Mobile style's
   }
 }
 
-
+.menu-container-mobile-open{
+	position: fixed;
+	overflow-x: auto;
+	background: #343434 !important;
+	width: 100%;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+}
 
 
 
@@ -714,10 +759,15 @@ Services
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .psa-button{
 	margin: 0.25rem 0 0.25rem 0;
+	background-color: $primary_col;
+	color: #fff;
+}
+.psa-button:hover{
+	color: #000;
 }
 .psa-button-big{
 	margin-top: 6rem;
-	height: 6rem;
+	height: 8rem;
 	width: 75%;
 	font-size: 2.5rem;
 	font-weight: 500;
@@ -738,6 +788,8 @@ Services
 	left: 0;
 	right: 0;
 	margin: auto !important;
+	padding-right: 0 !important;	
+	padding-left: 0 !important;	
 }
 .row{
 	padding-bottom: 1rem !important;
@@ -750,47 +802,55 @@ Services
 }
 @include media-breakpoint-up(xs) {
 	.reda-top-img{
-		margin-top: -3rem !important;
+		margin-top: 0.25rem !important;
+	}
+	.placeholder-reda-top-img{
+		margin-top: 0rem;
 	}
 }
 @include media-breakpoint-up(sm) {
 	.reda-top-img{
-		margin-top: -4rem !important;
+		margin-top: 0rem !important;
 	}
-}
-@include media-breakpoint-up(xs) {
 	.placeholder-reda-top-img{
 		margin-top: 2rem;
 	}
 }
 @include media-breakpoint-up(md) {
+	.reda-top-img{
+		margin-top: -0.5rem !important;
+	}
 	.placeholder-reda-top-img{
-		margin-top: 7rem;
+		margin-top: 3rem;
 	}
 }
 @include media-breakpoint-up(lg) {
+	.reda-top-img{
+		margin-top: -0.5rem !important;
+	}
 	.placeholder-reda-top-img{
-		margin-top: 12rem;
+		margin-top: 5rem;
 	}
 }
+
 @include media-breakpoint-up(xl) {
 	.placeholder-reda-top-img{
-		margin-top: 17rem;
+		margin-top: 10rem;
 	}
 }
 @include media-breakpoint-up(xxl) {
 	.placeholder-reda-top-img{
-		margin-top: 28rem;
+		margin-top: 16rem;
 	}
 }
 .li-img-border {
-	border: 10px solid $color1;
+	border: 10px solid $primary_col;
 	background-clip: padding-box;
 	border-image: url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI1IiB3aWR0aD0iMjUiIHN0eWxlPSJzdHJva2Utd2lkdGg6MjsgZmlsbDojMUMzQzhEIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0wIDEwSDNWM2g3VjBIMFpNMTUgMHYzaDd2N2gzVjBaTTAgMTVWMjVIMTBWMjJIM3YtN3ptMjIgMHY3aC03djNIMjVWMTVaIi8+PC9zdmc+) 10 fill;
 	border-image-outset: 0;
 	border-image-width: 3;
 	padding: 1rem;
-	fill: $color1;
+	fill: $primary_col;
 }
 $scrolling-img-height: 30rem;
 .scrolling-img-container {
@@ -812,8 +872,8 @@ $scrolling-img-height: 30rem;
 	top: 0;
 	width: 100%;
 	z-index: -1;
-	border-top: 10px solid $color1;
-	border-bottom: 10px solid $color1;
+	border-top: 10px solid $primary_col;
+	border-bottom: 10px solid $primary_col;
 	background-image: url('https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/dienstleistungen/atemschutzmasken.jpg');
 }
 .scrolling-img-placeholder {
@@ -827,7 +887,7 @@ $scrolling-img-height: 30rem;
 	}
 }
 .li-quote-body{
-	border-left: 6px solid $color1 !important;
+	border-left: 6px solid $primary_col !important;
 	padding-left: 1rem;
 	margin-top: 1rem;
 }
@@ -839,7 +899,7 @@ $scrolling-img-height: 30rem;
 	font-size: 1rem;
 }
 .full-size-text{
-	background: $color2;
+	background: $highlight_col;
 	padding-bottom: 1rem;
 	color: #fff;
 }
@@ -861,4 +921,231 @@ Products / Produkte / Artikel
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .nw_tabbed-pane__content-headline{
 	display: none;
+}
+
+
+
+
+
+
+
+
+
+/* ––––––––––––––––––––––––––––––––––––––––––––––––––
+OAK THEME Adjustments
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.nw_header__content{  /* Position megamenu */
+	position: absolute;
+	left: 0;
+	background-color: #555555;
+	padding-top: 1rem !important;
+}
+.nw_header__content{ 
+	@include media-breakpoint-up(xs) {
+		top: 4rem;
+	}
+}
+.nw_header__content{ 
+	@include media-breakpoint-up(md) {
+		top: 4.75rem;
+	}
+}
+
+.nw_header__top-navigation{
+	display: none; /* Hide standard menu */
+}
+
+@include media-breakpoint-up(xs) {
+	#nw_page-content-wrapper {
+		margin-top: 6.75rem;
+	}
+}
+@include media-breakpoint-up(sm) {
+	#nw_page-content-wrapper {
+		margin-top: 6.25rem;
+	}
+}
+@include media-breakpoint-up(sm) {
+	#nw_page-content-wrapper {
+		margin-top: 3rem;
+	}
+}
+
+
+
+.nw_navigation{
+	display: none; /* Hide standard hamburger menu */
+}
+
+.nw_search-wrapper{
+	width: 70% !important; /* Bigger search on top */
+}
+
+/* Search Pages */
+.nw_breadcrumb{
+	margin: 3.5rem -2rem .5rem -1.5rem;
+}
+.nw_list-navigation{
+	margin-left: 0rem;
+}
+.row{
+	margin-right: 0 !important;
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+/* Arrows for sliders */
+.swiper-button-prev, .swiper-button-next {
+	width: 50px !important;
+	height: 100px !important;	
+}
+.swiper-button-prev {
+	background-image: url("https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Links.png") !important;
+}
+
+.swiper-button-next {
+	background-image: url("https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Rechts.png") !important;
+}
+
+.swiper-button-next::after, .swiper-rtl, .swiper-button-prev::after{
+	content: '' !important;
+}
+
+.swiper-pagination-bullet{ /* bigger bullets on sliders */
+	height: 35px !important;
+	width: 35px !important;
+}
+
+.swiper-pagination-bullet{ /* different bullet color and border */
+	background-color: white !important;
+	border: 3px solid black;
+}
+
+.swiper-pagination-bullet-active{
+	background-color: $primary_col !important;
+}
+
+.nw_category-box__image {
+	text-align: center !important; /* centers imgs for categories */
+}
+
+img{
+	max-width: 100%;
+}
+
+/* Fix hover effect on front page */ 
+.nw_category-box__image :hover{
+	box-shadow: none !important;
+}
+.nw_category-box__overlay p{
+	margin-top: 0 !important;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	margin-bottom: 0 !important;
+}
+.nw_category-box__name{
+	background: $primary_col;
+	color: #fff;
+}
+
+.nw_product-detail{
+	margin-left: 2rem;
+}
+
+/* Colors product page */
+.nw_product-detail__price-info > div{
+	background-color: #1C3C8D;
+	color: #fff !important;
+}
+.nw_product-detail__price-gross{
+	color: #fff !important;
+}
+.nw_product-detail__legal-shipping a{
+	color: #fff !important;
+}
+.nw_product-detail__add-to-cart-button {
+	color: #fff !important;
+	background-color: #2094D2;
+}
+
+.bg-light, .bg-light.text-muted{
+	color: #fff !important;
+}
+.nw_breadcrumb__item a, .nw_breadcrumb__item span, .nw_breadcrumb__item i{
+	color: #000 !important;
+}
+
+/* Checkout */
+.nw_cart__next-step, .nw_checkout__step-overview__next-step{
+	width: 100% !important;
+}
+.nw_addresses__address-card.is-selected > div > div > div > div{
+	color: #fff !important;
+}
+
+/* Fix for brand display on frontpage */
+.loe-brands {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+
+/* Product page - Title bold; Info not bold */
+.nw_product-detail__content-product > tbody > tr > td:nth-child(2) { 
+	font-weight: 100 !important;
+}
+.nw_product__attributes-table > tbody > tr > td:nth-child(2) { 
+	font-weight: 500 !important;
+}
+/* Scrolling price display - correct position */
+.nw_product-detail__price-info{
+	top: 15rem !important;
+}
+/* Round borders */
+.nw_product-detail__price-info > div{
+	border-radius: 3rem !important;
+}
+/* Display title */
+.nw_product-detail__header > div{
+	display: block !important;
+}
+
+
+.ontext, .offtext{
+	top: 1rem !important;
+}
+
+.nw_category-box__image{
+	max-height: 380px;
+}
+.nw_category-box__image img{
+	max-height: unset !important;
+}
+
+/* Main slider - No slider arrows on mobile */
+@include media-breakpoint-down(sm) {
+	.loe-main_slider > section > div > div > .swiper-button-next, 
+	.loe-main_slider > section > div > div > div > .swiper-button-next, 
+	.loe-main_slider > section > div > div > .swiper-button-prev,
+	.loe-main_slider > section > div > div > div > .swiper-button-prev{
+		display: none !important;
+	}
+	
+	.loe-main_slider > section > div > div > div > .swiper-pagination-bullet{
+		display: none !important;
+	}		
+}
+
+
+/* Show a bit of next/prev slide on main img */
+.swiper-slide {
+	width: 92.5%;
+}
+.loe-month_maschine > section > div > div > div > .swiper-slide{
+	width: 100% !important;
+}
+
+@include media-breakpoint-up(lg){
+	.mobile-only{
+		display: none !important;
+	}
 }

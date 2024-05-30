@@ -55,3 +55,34 @@
                 }
               ]
 }
+
+
+
+{
+	"rewind": true,
+	"grid": {
+		"fill": "columns",
+		"rows": 3
+	},
+	"pagination": {
+		"enabled": false
+	},
+	"breakpoints": {	
+		"0": {
+			"slidesPerView": 2,
+			"slidesPerGroup": 2
+		},
+		"1024": {
+			"slidesPerView": 3,
+			"slidesPerGroup": 3
+		},
+		"1025": {
+			"slidesPerView": 4,
+			"slidesPerGroup": 4
+		},
+		"1650": {
+			"slidesPerView": 7,
+			"slidesPerGroup": 7
+		}
+	}
+}

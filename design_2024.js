@@ -1,3 +1,60 @@
+/********************************************
+Megamenu by marioloncarek - https://github.com/marioloncarek/megamenu-js
+********************************************/
+/*global $ */
+$(document).ready(function() {
+
+  "use strict";
+
+  $('.menu > ul > li:has( > ul)').addClass('menu-dropdown-icon');
+  //Checks if li has sub (ul) and adds class for toggle icon - just an UI
+
+  $('.menu > ul > li > ul:not(:has(ul))').addClass('normal-sub');
+  //Checks if drodown menu's li elements have anothere level (ul), if not the dropdown is shown as regular dropdown, not a mega menu (thanks Luka Kladaric)
+
+  $(".menu > ul").before("<a href=\"#\" class=\"menu-mobile\">&nbsp;</a>");
+
+  //Adds menu-mobile class (for mobile toggle menu) before the normal menu
+  //Mobile menu is hidden if width is more then 959px, but normal menu is displayed
+  //Normal menu is hidden if width is below 959px, and jquery adds mobile menu
+  //Done this way so it can be used with wordpress without any trouble
+
+  $(".menu > ul > li").hover(function(e) {
+    if ($(window).width() > 943) {
+		if($(this).children("ul").is(":visible")){
+			$(this).children("ul").stop(true, false).fadeOut(150);
+		}
+		else{
+			$(this).children("ul").stop(true, false).fadeOut(15);
+			$(this).children("ul").stop(true, false).fadeIn(150);
+		}
+		
+		e.preventDefault();
+    }
+  });
+  //If width is more than 943px dropdowns are displayed on hover
+
+  $(".menu > ul > li").click(function() {
+    if ($(window).width() <= 943) {
+      $(this).children("ul").fadeToggle(150);
+    }
+  });
+  //If width is less or equal to 943px dropdowns are displayed on click (thanks Aman Jain from stackoverflow)
+
+  $(".menu-mobile").click(function(e) {
+    $(".menu > ul").toggleClass('show-on-mobile');
+	if($(".show-on-mobile").is(":visible")){
+		$('.menu-container').addClass('menu-container-mobile-open');
+	}
+	else{
+		$('.menu-container').removeClass('menu-container-mobile-open');
+	}
+    e.preventDefault();
+  });
+  //when clicked on mobile-menu, normal menu is shown as a list, classic rwd menu story (thanks mwl from stackoverflow)
+
+});
+
 /*******************************************************
 Lieferzeiten Anzeige
 *******************************************************/
@@ -5,28 +62,36 @@ Lieferzeiten Anzeige
 try{
 	//Lieferzeiten nur bei Artikeln anzeigen (haben -loe in der URL)
 	if(window.location.href.indexOf("-loe") >= 1){
-		var lieferzeiten = document.getElementsByClassName("legal"); //HTML der Lieferzeiten Klasse auslesen
-		var lieferhtml = lieferzeiten[1]['outerHTML']; //HTML "reduzieren"; Unnötige Informationen des Objekts entfernen
-		var lieferindex = lieferhtml.indexOf("Die Lieferung erfolgt innerhalb"); //Nach "Die Lieferung erfolgt innerhalb" suchen, um alles vor diesem String abzuschneiden
+		$(".nw_product-detail__vpe-label").html("VPE / Mindestabnahmemenge"); //Set VPE text
+		
+		var lieferzeiten = $('[data-bs-target="#nw_modal--content"'); //HTML der Lieferzeiten Klasse auslesen
+		var lieferhtml = "";
+		for (let item of lieferzeiten) {
+			//console.log(item["outerHTML"]);
+			if(item["outerHTML"].indexOf("Die Lieferung erfolgt innerhalb") >= 0){
+				lieferhtml = item["outerHTML"]; //HTML "reduzieren"; Unnötige Informationen des Objekts entfernen
+			}
+		}
+		var lieferindex = lieferhtml.indexOf("Die Lieferung erfolgt innerhalb"); 
 		var lieferzeitentext_temp = lieferhtml.substring(lieferindex, lieferindex+100); //Alles vor "Die Lieferung erfolgt innerhalb" abschneiden
 		var lieferindex = lieferzeitentext_temp.indexOf("<br>"); //Nach dem <br> suchen, um alles danach abzuschneiden
 		var lieferzeitentext = lieferzeitentext_temp.substring(0, lieferindex); //Vom neuen String alles nach dem <br> abschneiden, dass nur noch der String übrig bleibt, den wir benötigen
 		var lieferzeitentext_full = lieferzeitentext;
-		
+				
 		//Lieferzeit vermindern, wenn in Gießen auf Lager
-		if (document.querySelector('.is-in-stock') !== null && $( ".is-in-stock" ).text().indexOf("Gießen") >= 0){
+		if (document.querySelector('.nw_storage-locations--is-in-stock') !== null && $( ".nw_storage-locations--is-in-stock" ).text().indexOf("Gießen") >= 0){
 		   lieferzeitentext = lieferzeitentext.replace(/[0-9]+/g, "3"); //Wenn die Ware auf Lager ist, wird die Lieferzeit auf 3 Tage gesetzt
 		} 
 		
 		//Lieferzeit vermindern, wenn in Sulingen auf Lager
-		if (document.querySelector('.is-in-stock') !== null && $( ".is-in-stock" ).text().indexOf("Sulingen") >= 0){
+		if (document.querySelector('.nw_storage-locations--is-in-stock') !== null && $( ".nw_storage-locations--is-in-stock" ).text().indexOf("Sulingen") >= 0){
 		   lieferzeitentext = lieferzeitentext.replace(/[0-9]+/g, "2"); //Wenn die Ware auf Lager ist, wird die Lieferzeit auf 2 Tage gesetzt
 		} 
 		
 		//Lieferzeit anzeigen
 		if(window.location.pathname !== "/"){
-			$( ".is-in-stock" ).append( "<p>"+lieferzeitentext+"</p>" ); //Die Lieferzeiten an die Klasse anhängen
-			$( ".is-not-available").append( "<p>Derzeit nicht verfügbar. Bestellware! "+lieferzeitentext_full+"</p>" ); //Die Lieferzeiten an die Klasse anhängen
+			$( '.nw_storage-locations--is-in-stock' ).append( "<p>"+lieferzeitentext+"</p>" ); //Die Lieferzeiten an die Klasse anhängen
+			$( ".nw_storage-locations--is-not-available").append( "<p>Derzeit nicht verfügbar. Bestellware! "+lieferzeitentext_full+"</p>" ); //Die Lieferzeiten an die Klasse anhängen
 		}
 	}	
 }
@@ -195,53 +260,3 @@ catch(e){
 
 
 
-/********************************************
-Megamenu by marioloncarek - https://github.com/marioloncarek/megamenu-js
-********************************************/
-/*global $ */
-$(document).ready(function() {
-
-  "use strict";
-
-  $('.menu > ul > li:has( > ul)').addClass('menu-dropdown-icon');
-  //Checks if li has sub (ul) and adds class for toggle icon - just an UI
-
-  $('.menu > ul > li > ul:not(:has(ul))').addClass('normal-sub');
-  //Checks if drodown menu's li elements have anothere level (ul), if not the dropdown is shown as regular dropdown, not a mega menu (thanks Luka Kladaric)
-
-  $(".menu > ul").before("<a href=\"#\" class=\"menu-mobile\">Menü</a>");
-
-  //Adds menu-mobile class (for mobile toggle menu) before the normal menu
-  //Mobile menu is hidden if width is more then 959px, but normal menu is displayed
-  //Normal menu is hidden if width is below 959px, and jquery adds mobile menu
-  //Done this way so it can be used with wordpress without any trouble
-
-  $(".menu > ul > li").hover(function(e) {
-    if ($(window).width() > 943) {
-		console.log($(this).children("ul").is(":visible"));
-		if($(this).children("ul").is(":visible")){
-			$(this).children("ul").stop(true, false).fadeOut(150);
-		}
-		else{
-			$(this).children("ul").stop(true, false).fadeIn(150);
-		}
-		
-		e.preventDefault();
-    }
-  });
-  //If width is more than 943px dropdowns are displayed on hover
-
-  $(".menu > ul > li").click(function() {
-    if ($(window).width() <= 943) {
-      $(this).children("ul").fadeToggle(150);
-    }
-  });
-  //If width is less or equal to 943px dropdowns are displayed on click (thanks Aman Jain from stackoverflow)
-
-  $(".menu-mobile").click(function(e) {
-    $(".menu > ul").toggleClass('show-on-mobile');
-    e.preventDefault();
-  });
-  //when clicked on mobile-menu, normal menu is shown as a list, classic rwd menu story (thanks mwl from stackoverflow)
-
-});

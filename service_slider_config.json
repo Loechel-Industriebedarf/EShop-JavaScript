@@ -58,3 +58,45 @@
                 }
               ]
 }
+
+
+{
+	"grabCursor": true,
+	"rewind": true,
+	"lazyPreloadPrevNext": 1,
+	"pagination": {
+		"enabled": false
+	},
+	"breakpoints": {
+		"0": {
+			"slidesPerView": 1
+		},
+		"768": {
+			"slidesPerView": 3
+		},
+		"1024": {
+			"slidesPerView": 3
+		}
+	}
+}
+
+
+{
+	"effect": "coverflow",
+	"coverflowEffect": {
+		"rotate": 0,
+		"stretch": 30,
+		"depth": 100,
+		"modifier": 5,
+		"slideShadows": false
+	 },	
+	"centeredSlides": true,
+	"grabCursor": true,
+	"loop": true,
+	"centeredSlides": true,
+	"slidesPerView": 2,
+	"lazyPreloadPrevNext": 1,
+	"pagination": {
+		"enabled": false
+	}
+}
