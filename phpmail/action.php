@@ -69,7 +69,12 @@ try {
 
     //Content
     $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Retourenanfrage von ' . $_POST["full_name"];
+	if($_POST["firm"] != ""){
+		$mail->Subject = 'Retourenanfrage von ' . $_POST["firm"];
+	}
+	else{
+		$mail->Subject = 'Retourenanfrage von ' . $_POST["full_name"];
+	}
     $mail->Body    =  $msg;
 	
     $mail->AltBody =  strip_tags($msg); //No html
