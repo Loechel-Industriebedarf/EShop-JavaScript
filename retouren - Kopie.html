@@ -1,0 +1,237 @@
+<meta charset="utf-8">
+
+<div class="row">
+	<div class="col-md-2 d-xs-none d-md-block"></div>
+	<div class="col col-md-4">
+	
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+		  <li class="nav-item li-nav-item" role="presentation">
+			<button class="nav-link li-nav-link active" id="privat-tab" data-bs-toggle="tab" data-bs-target="#privat" type="button" role="tab" aria-controls="privat" aria-selected="true">Privatkunde</button>
+		  </li>
+		  <li class="nav-item li-nav-item" role="presentation">
+			<button class="nav-link li-nav-link" id="firma-tab" data-bs-toggle="tab" data-bs-target="#firma" type="button" role="tab" aria-controls="firma" aria-selected="false">Geschäftskunde</button>
+		  </li>
+		</ul>
+		<div class="tab-content" id="myTabContent">
+		  <div class="tab-pane fade show active" id="privat" role="tabpanel" aria-labelledby="privat-tab">
+			<form action="https://tectree.de/form/action.php" method="post" target="_blank" enctype="multipart/form-data">
+				<input class="form-control" name="customer" id="customer" type="hidden" value="Privatkunde">
+			
+				<div class="nw_form-group">
+					<div class="nw_form-group__form-elements">
+						<span class="nw_form-element--input is-required">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Vor- und Nachname</span>              
+										<input class="form-control" name="full_name" id="full_name" type="text" required="required">
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input is-required">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>E-Mail Adresse</span>              
+										<input class="form-control" name="email" id="email" type="text" required="required">
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Telefonnummer</span>              
+										<input class="form-control" name="phoneNum" id="phoneNum" type="text">
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input is-required">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Lieferscheinnummer / Auftragsnummer / Rechnungsnummer</span>              
+										<input class="form-control" name="uniqueNum" id="uniqueNum" type="text" required="required">
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Retourengrund</span>              
+										<select class="form-control" name="retReason" id="retReason" size="1">
+										  <option>Bitte auswählen...</option>
+										  <option>Pfand-Rückgabe</option>
+										  <option>Defekt</option>
+										  <option>Falschlieferung</option>
+										  <option>Fehlerhafte Abbildung</option>
+										  <option>Transportschaden</option>
+										  <option>Sonstige</option>
+										</select>
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Nachricht / Zusatzinformationen</span>              
+										<textarea rows="5" cols="80" class="form-control" name="msg_body" id="msg_body" ></textarea>
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Anhänge / Bilder</span>              
+										<input class="form-control" name="uploadedFiles[]" type="file" multiple="multiple" />
+									</label>
+								</div>
+							</div>
+						</span>
+					</div>
+				</div>
+				<button class="btn btn-primary full-width" type="submit">Nachricht senden</button>
+			</form>
+		  </div>
+		  <div class="tab-pane fade" id="firma" role="tabpanel" aria-labelledby="firma-tab">
+			<form action="https://tectree.de/form/action.php" method="post" target="_blank" enctype="multipart/form-data">
+				<input class="form-control" name="customer" id="customer" type="hidden" value="Geschäftskunde">
+			
+				<div class="nw_form-group">
+					<div class="nw_form-group__form-elements">
+						<span class="nw_form-element--input is-required">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Firma</span>              
+										<input class="form-control" name="full_name" id="full_name" type="text" required="required">
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input is-required">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>E-Mail Adresse</span>              
+										<input class="form-control" name="email" id="email" type="text" required="required">
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Telefonnummer</span>              
+										<input class="form-control" name="phoneNum" id="phoneNum" type="text">
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input is-required">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Lieferscheinnummer / Auftragsnummer / Rechnungsnummer</span>              
+										<input class="form-control" name="uniqueNum" id="uniqueNum" type="text" required="required">
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Retourengrund</span>              
+										<select class="form-control" name="retReason" id="retReason" size="1">
+										  <option>Bitte auswählen...</option>
+										  <option>Pfand-Rückgabe</option>
+										  <option>Defekt</option>
+										  <option>Falschlieferung</option>
+										  <option>Fehlerhafte Abbildung</option>
+										  <option>Transportschaden</option>
+										  <option>Sonstige</option>
+										</select>
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Nachricht / Zusatzinformationen</span>              
+										<textarea rows="5" cols="80" class="form-control" name="msg_body" id="msg_body" ></textarea>
+									</label>
+								</div>
+							</div>
+						</span>
+						
+						<span class="nw_form-element--input">
+							<div class="input-group">
+								<div class="nw_input-group">
+									<label>
+									   <span>Anhänge / Bilder</span>              
+										<input class="form-control" name="uploadedFiles[]" type="file" multiple="multiple" />
+									</label>
+								</div>
+							</div>
+						</span>
+					</div>
+				</div>
+				<button class="btn btn-primary full-width" type="submit">Nachricht senden</button>
+			</form>
+		  </div>
+		</div>
+
+	* = Pflichtfeld<br>
+	Informationen zur Datenschutzerklärung <a href="https://www.loechel-industriebedarf.de/datenschutz" target="_blank">(Datenschutzerklärung anzeigen)</a><br>
+		
+	</div>
+	<div class="col-md-4 col-12 mt-3 mt-md-0">        
+		<article class="nw_contact-person">
+			<h4 class="nw_contact-person__header mb-3">Ihr Ansprechpartner</h4>
+			<div class="nw_contact-person__content">
+				<div class="nw_contact-person__image nw_image">
+					<img class="nw_image__image mb-5" alt="Löchel Industriebedarf Retouren" style="opacity: 1;" src="/upload/ContactPersonManager_95/loechel_icon200x200.png">
+				</div>
+				
+				<p class="nw_contact-person__name">Löchel Industriebedarf Retouren</p>
+
+				<address>
+					<div class="nw_contact-person__data-entry">
+						<div class="nw_contact-person__data-entry-value">
+							<span>Tel.:</span> <a href="tel:04271 782776">04271 782776</a>
+						</div>
+					</div>
+					<div class="nw_contact-person__data-entry">
+						<div class="nw_contact-person__data-entry-value">
+							<span>eMail:</span> <a href="mailto:retouren@loechel-industriebedarf.de">retouren@loechel-industriebedarf.de</a>
+						</div>
+					</div>
+				</address>
+			</div>
+		</article>
+	</div>
+</div>

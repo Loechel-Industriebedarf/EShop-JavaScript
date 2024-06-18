@@ -1,6 +1,7 @@
-/********************************************
- Variables
-********************************************/
+/*****************************************************************************************	
+ Variables	
+*****************************************************************************************/
+
 $primary_col: #1C3C8D;
 $highlight_col: #2094D2;
 $neutral_col: #373434;
@@ -8,15 +9,41 @@ $neutral_col: #373434;
 
 
 
-/********************************************
- Body
-********************************************/
+/*****************************************************************************************	
+ Body	
+*****************************************************************************************/
 
 /* Remove horizontal scrolling */
 body{
 	overflow-x: hidden;
 	margin-left: -0.1rem;
 }
+img{
+	max-width: 100%;
+}
+/* Custom font */
+h3{
+	/* font-family: 'Mom\'sTypewriter'; */
+	hyphens: auto;
+}
+h4{
+	padding: 1rem 0 0 0.5rem;
+	font-family: 'Mom\'sTypewriter';
+	hyphens: auto;
+}
+/* Bigger h6 */
+h6{
+	font-size: 2rem;
+	font-weight: 500 !important;
+}
+ blockquote{
+	margin-top: 5rem;
+ }
+ /* No label text in selection */
+ select{
+	 padding-top: 1rem !important;
+ }
+ 
 /* Remove icons for external links */
 #icon-link-out {
 	visibility: hidden;
@@ -29,25 +56,24 @@ body{
 .hidden{
 	visibility: hidden;
 }
-/* Custom font */
-h3{
-	/* font-family: 'Mom\'sTypewriter'; */
-	hyphens: auto;
+
+.full-width{
+	width: 100%;
 }
+
 /* Slight padding on h4 (primary for Redaktionelle Inhalte) */
 .nw_product-box__title{
 	font-family: revert !important;
 }
-h4{
-	padding: 1rem 0 0 0.5rem;
-	font-family: 'Mom\'sTypewriter';
-	hyphens: auto;
+
+.loe-list > li {
+  padding-left: 0.5em;
+  list-style-type: "⚙";
 }
-/* Bigger h6 */
-h6{
-	font-size: 2rem;
-	font-weight: 500 !important;
-}
+ .text-center{
+	text-align: center;
+ }
+
 .nw_page-title h1{
 	font-size: 2rem !important;
 	letter-spacing: 0.05rem;
@@ -58,21 +84,25 @@ h6{
 		letter-spacing: 0.05rem;
 	}
 }
-.loe-list > li {
-  padding-left: 0.5em;
-  list-style-type: "⚙";
+
+@include media-breakpoint-up(lg){
+	.mobile-only{
+		display: none !important;
+	}
 }
- .text-center{
-	text-align: center;
- }
- blockquote{
-	margin-top: 5rem;
- }
+
+@include media-breakpoint-down(lg){ /* No sticky top on mobile */
+	.sticky-top{
+		position: relative;
+	}
+}
 
 
-/********************************************
- Header
-********************************************/
+
+/*****************************************************************************************	
+ Header	
+*****************************************************************************************/
+
 
 /* Grey border for search */
 .nw_search__wrapper{
@@ -135,6 +165,12 @@ h6{
 .nw_header__bottom{
 	background: #484848;
 }
+
+
+/*********************************************
+ Search
+*********************************************/
+
 /* No category search */
 .nw_search__category_wrapper {
 	max-width: 0% !important;
@@ -150,255 +186,32 @@ h6{
 	font-weight: 500;
 }
 
-
-
-/********************************************
- Footer
-********************************************/
-
-/* White footer text; underline links */
-.nw_footer a {
-	color: #ffffff !important;
-	text-decoration: underline !important;
-	border-bottom: 0px !important;
+.nw_search-wrapper{
+	width: 70% !important; /* Bigger search on top */
 }
-/* No weird white bar on bottom of page */
-.nw_flyout--steel{
-	display: none;
+/* Round search bar */
+input[name="query"]{
+	background-color: #1C3C8D;
+	color: #fff;
+	border-top-left-radius: 0.375rem !important;
+	border-bottom-left-radius: 0.375rem !important;
+	border: 2px solid #fff;
 }
-
-
-
-/********************************************
- Frontpage
-********************************************/
-
-/* Full size page */
-.nw_content-box__body{
-	padding: 0rem !important;
+input[name="query"]::placeholder{
+	color: #fff;
 }
-.nw_stage-swiper-box{
-	margin-left: -1.5rem;
-	margin-right: -2.5rem;
+.input-group-text.shadow-none.px-4.btn.btn-primary{
+	border: 2px solid #fff;
 }
-
-/* Categories Background, hover and slightly more transparent overlay */
-.nw_category-box__overlay {
-	z-index: 11;
-	position: relative;
-}
-.nw_category-box__wrapper {
-	overflow: hidden;
-}
-.loe-brands > section > div > div > div > div > div > div > div > div > a > div{
-	background: $highlight_col;
-	background: -webkit-gradient(linear, left top, left bottom, from(#2ac0ff), to(#1a76a8));
-    background: -moz-linear-gradient(top, #2ac0ff, #1a76a8);
-    background: linear-gradient(to bottom, #2ac0ff, #1a76a8);
-}
-.loe-brands > section > div > div > div > div > div > div > div > div > a > div:hover{
-	background: #32e6ff;
-	background: -webkit-gradient(linear, left top, left bottom, from(#32e6ff), to(#1f8eca));
-    background: -moz-linear-gradient(top, #32e6ff, #1f8eca);
-    background: linear-gradient(to bottom, #32e6ff, #1f8eca);
-	opacity: 0.8;
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-}
-.nw_category-box__image:hover{
-	-webkit-transition: .3s ease-in-out;
-	transition: .5s ease-in-out;
-	-webkit-transform: scale(1.05);
-	transform: scale(1.05);	
-}
-.nw_category-box__image {
-	transition: 0.5s all ease-in-out;
-}
-/* Headlines in uppercase, bold and aligned left */
-.headline, .-free-headline > div > h2 {
-	text-align: left !important;
-	color: black !important;
-	
-	font-weight: 700 !important;
-	font-family: "Gill Sans", sans-serif;
-	text-transform: uppercase;
-	float: left;
-	text-wrap: balance;
-}
-@include media-breakpoint-up(xs) {
-	.headline, .-free-headline > div > h2 {
-		font-size: 2rem !important;
-	}
-}
-@include media-breakpoint-up(md) {
-	.headline, .-free-headline > div > h2 {
-		font-size: 3.4rem !important;
-	}
-}
-.nw_search__history > li{
-	font-size: 1rem !important;
-	float: none !important;
-}
-/* Brands: Greyscale => non grayscale on hove r*/
-.nw_brands-banner__image {
-	filter: grayscale(1);
-}
-.nw_brands-banner__image {
-	position: relative;
-	color: gray;
-	filter: grayscale(1);
-}
-.nw_brands-banner__image:hover {
-	filter: grayscale(0);
-}
-.nw_m-brands-banner img {
-	margin-top: 0px !important;
-}
-/* Brands: fix very long icons */
-.nw_image.nw_brands-banner__image {
-  max-width: 300px;
-  max-height: 100px;
-}
-.nw_brands-banner__image > a > img {
-	max-width: 100% !important;
-	max-height: 100% !important;
-}
-/* Different background */
-.diff-background{
-	background-color: #eeeeee !important;
-}
-/* Slider arrows */
-.slick-prev, .slick-next {
-	height: 100px !important;
-	width: 50px !important;
-	margin-top: 0px;
-}
-.slick-next {
-	right: 1%;
-}
-.slick-prev {
-	left: 1%;
-}
-.slick-dots li button::before {
-	font-size: 14px !important;
-	color: $primary_col !important;
-}
-.slick-active button::before{
-	opacity: 1 !important;
-}
-.slick-dots li {
-	width: 35px !important;
-}
-.slick-arrow:hover {
-	opacity: 0.8;
-	filter: grayscale(0.25);
-}
-@include media-breakpoint-up(xl) { /* On Desktop: Only display arrows and pagination on hover  */
-	.swiper{
-		.swiper-button-prev, .swiper-button-next, .swiper-pagination-bullet, .swiper-pagination-bullet-active{
-			visibility: hidden;
-			opacity: 0;
-			transition: visibility 0s, opacity 0.5s linear;
-		}
-		&:hover{
-			.swiper-button-prev, .swiper-button-next, .swiper-pagination-bullet, .swiper-pagination-bullet-active{
-				visibility: visible;
-				opacity: 0.8;
-				transition: visibility 0s, opacity 0.5s linear;
-			}
-		}
-	}
+.shadow-none.px-4.btn.btn-primary.nw_search-bar__barcode-scan{
+	border: 2px solid #fff;
 }
 
 
 
-/********************************************
- Tables
-********************************************/
-
-.table-striped>tbody>tr:nth-child(odd)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: $primary_col;
-   color: #fff !important;
-   opacity: 0.85;
- }
-.table-striped>tbody>tr:nth-child(even)>td, 
-.table-striped>tbody>tr:nth-child(even)>th {
-   background-color: $highlight_col;
-   color: #fff !important;
-   opacity: 0.85;
- }
- .table-li{
-	color: #fff !important;
-	width: 100%;
-	font-weight: 500;
-	border-collapse: collapse !important;
- }
- .table-li > tbody > tr > td > a{
-	 color: #fff !important;
-	 font-weight: 500;
-	 text-decoration: underline;
- }
- .table-li thead{
-	color: #000 !important;
- }
- .table-li tbody > tr:hover{
-	 opacity: 0.6;
- }
-
-
-/********************************************
- Smaller font for advantage box
-********************************************/
-.nw_advantage-box--small{
-	font-size: 1.2rem !important;
-}
-
-
-
-/********************************************
- Checkout message for international customers
-********************************************/
-.nw_login__form-register::before {
-    content: "Damit für Kunden außerhalb Deutschlands online ein korrekten Steuersatz dargestellt wird, ist eine Registrierung zwingend notwendig! \A Sollte bei Auslandskunden eine Gastbestellung erfolgen, wird der Preis in der Auftragsbestätigung und Rechnung gegebenenfalls gemäß der gültigen Mehrwertsteuer angepasst. \A\A";
-	white-space: break-spaces;
-}
-
-
-
-/********************************************
- Damit Kauf auf Rechnung Text beim Checkout nicht komisch aussieht
-********************************************/
-.nw_checkout-option__label{
-	width: 100% !important;
-}
-
-
-
-/********************************************
- Sidebar - Currently only used on "Services"
-********************************************/
-.loe_sidebar {
-	display: none;
-	position: fixed;
-	right: 0;
-	z-index: 99999;
-	background-color: white;
-	border: 1px solid black;
-	border-right: 0;
-	top: 25%;
-	max-width: 20rem;
-	padding: 1rem;
-	color: #373434;
-}
-
-
-
-
-
-/********************************************
-Megamenu
-********************************************/
+/*****************************************************************************************	
+ Megamenu	
+*****************************************************************************************/
 
 .nw_header__service-navigation{
 	display: none;
@@ -731,9 +544,421 @@ Mobile style's
 	z-index: 9999;
 }
 
+.nw_header__content{  /* Position megamenu */
+	position: absolute;
+	left: 0;
+	background-color: #555555;
+	padding-top: 1rem !important;
+}
+.nw_header__content{ 
+	@include media-breakpoint-up(xs) {
+		top: 4rem;
+	}
+}
+.nw_header__content{ 
+	@include media-breakpoint-up(md) {
+		top: 4.75rem;
+	}
+}
+
+.nw_header__top-navigation{
+	display: none; /* Hide standard menu */
+}
+
+@include media-breakpoint-up(xs) {
+	#nw_page-content-wrapper {
+		margin-top: 9rem;
+	}
+}
+@include media-breakpoint-up(sm) {
+	#nw_page-content-wrapper {
+		margin-top: 7rem;
+	}
+}
+@include media-breakpoint-up(sm) {
+	#nw_page-content-wrapper {
+		margin-top: 5rem;
+	}
+}
+
+.nw_navigation{
+	display: none; /* Hide standard hamburger menu */
+}
 
 
 
+/*****************************************************************************************	
+ Footer	
+*****************************************************************************************/
+
+/* White footer text; underline links */
+.nw_footer a {
+	color: #ffffff !important;
+	text-decoration: underline !important;
+	border-bottom: 0px !important;
+}
+/* No weird white bar on bottom of page */
+.nw_flyout--steel{
+	display: none;
+}
+
+.nw_footer__content-boxes > section > article > section > div > h2{
+	font-size: 1.3rem !important;
+	text-transform: uppercase;
+}
+
+
+
+/*****************************************************************************************	
+ Frontpage	
+*****************************************************************************************/
+
+
+/* Full size page */
+.nw_content-box__body{
+	padding: 0rem !important;
+}
+.nw_stage-swiper-box{
+	margin-left: -1.5rem;
+	margin-right: -2.5rem;
+}
+
+/* Categories Background, hover and slightly more transparent overlay */
+.nw_category-box__overlay {
+	z-index: 11;
+	position: relative;
+}
+.nw_category-box__wrapper {
+	overflow: hidden;
+}
+.loe-brands > section > div > div > div > div > div > div > div > div > a > div{
+	background: $highlight_col;
+	background: -webkit-gradient(linear, left top, left bottom, from(#2ac0ff), to(#1a76a8));
+    background: -moz-linear-gradient(top, #2ac0ff, #1a76a8);
+    background: linear-gradient(to bottom, #2ac0ff, #1a76a8);
+}
+.loe-brands > section > div > div > div > div > div > div > div > div > a > div:hover, .container-li>div>div>img:hover{
+	background: #32e6ff;
+	background: -webkit-gradient(linear, left top, left bottom, from(#32e6ff), to(#1f8eca));
+    background: -moz-linear-gradient(top, #32e6ff, #1f8eca);
+    background: linear-gradient(to bottom, #32e6ff, #1f8eca);
+	opacity: 0.8;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.nw_category-box__image:hover{
+	-webkit-transition: .3s ease-in-out;
+	transition: .5s ease-in-out;
+	-webkit-transform: scale(1.05);
+	transform: scale(1.05);	
+}
+.nw_category-box__image {
+	transition: 0.5s all ease-in-out;
+}
+/* Headlines in uppercase, bold and aligned left */
+.headline, .-free-headline > div > h2 {
+	text-align: left !important;
+	color: black !important;
+	
+	font-weight: 700 !important;
+	font-family: "Gill Sans", sans-serif;
+	text-transform: uppercase;
+	float: left;
+	text-wrap: balance;
+}
+@include media-breakpoint-up(xs) {
+	.headline, .-free-headline > div > h2 {
+		font-size: 2rem !important;
+	}
+}
+@include media-breakpoint-up(md) {
+	.headline, .-free-headline > div > h2 {
+		font-size: 3.4rem !important;
+	}
+}
+.nw_search__history > li{
+	font-size: 1rem !important;
+	float: none !important;
+}
+/* Brands: Greyscale => non grayscale on hove r*/
+.nw_brands-banner__image {
+	filter: grayscale(1);
+}
+.nw_brands-banner__image {
+	position: relative;
+	color: gray;
+	filter: grayscale(1);
+}
+.nw_brands-banner__image:hover {
+	filter: grayscale(0);
+}
+.nw_m-brands-banner img {
+	margin-top: 0px !important;
+}
+/* Brands: fix very long icons */
+.nw_image.nw_brands-banner__image {
+  max-width: 300px;
+  max-height: 100px;
+}
+.nw_brands-banner__image > a > img {
+	max-width: 100% !important;
+	max-height: 100% !important;
+}
+/* Different background */
+.diff-background{
+	background-color: #eeeeee !important;
+}
+ /* centers imgs for categories */
+.nw_category-box__image {
+	text-align: center !important;
+}
+/* Fix hover effect on front page */ 
+.nw_category-box__image :hover{
+	box-shadow: none !important;
+}
+.nw_category-box__overlay p{
+	margin-top: 0 !important;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	margin-bottom: 0 !important;
+}
+.nw_category-box__name{
+	background: $primary_col;
+	color: #fff;
+}
+
+.nw_product-detail{
+	margin-left: 2rem;
+}
+/* Fix for brand display on frontpage */
+.loe-brands {
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+.ontext, .offtext{
+	top: 1rem !important;
+}
+
+.nw_category-box__image{
+	max-height: 380px;
+}
+.nw_category-box__image img{
+	max-height: unset !important;
+}
+.designer-content-row{
+	margin-top: 0.5rem !important
+}
+
+.li-newsletter > section{
+	height: unset;
+}
+.li-newsletter > section > .nw_content-box__body{
+	padding: 1.25rem 1.25rem 0 1.25rem !important;
+}
+input[name="emailRegister"]{ /* Register input: Only a line on bottom */
+	margin-top: 2rem;
+	margin-bottom: -2rem;
+	border: none;
+	border-bottom: 1px solid black;
+}
+.nw_newsletter-subscriber-box__intro-text > .btn.btn-primary{
+	margin: 1rem 0 0 0 !important;
+}
+
+
+/**************************************
+Slider
+**************************************/
+.swiper-button-prev, .swiper-button-next {
+	width: 50px !important;
+	height: 100px !important;	
+}
+.swiper-button-prev {
+	background-image: url("https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Links.png") !important;
+}
+
+.swiper-button-next {
+	background-image: url("https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Rechts.png") !important;
+}
+
+.swiper-button-next::after, .swiper-rtl, .swiper-button-prev::after{
+	content: '' !important;
+}
+
+.swiper-pagination-bullet{ /* bigger bullets on sliders */
+	height: 35px !important;
+	width: 35px !important;
+}
+
+.swiper-pagination-bullet{ /* different bullet color and border */
+	background-color: white !important;
+	border: 3px solid black;
+}
+
+.swiper-pagination-bullet-active{
+	background-color: $primary_col !important;
+}
+/* Slider arrows OLD slick slider */
+.slick-prev, .slick-next {
+	height: 100px !important;
+	width: 50px !important;
+	margin-top: 0px;
+}
+.slick-next {
+	right: 1%;
+}
+.slick-prev {
+	left: 1%;
+}
+.slick-dots li button::before {
+	font-size: 14px !important;
+	color: $primary_col !important;
+}
+.slick-active button::before{
+	opacity: 1 !important;
+}
+.slick-dots li {
+	width: 35px !important;
+}
+.slick-arrow:hover {
+	opacity: 0.8;
+	filter: grayscale(0.25);
+}
+@include media-breakpoint-up(xl) { /* On Desktop: Only display arrows and pagination on hover  */
+	.swiper{
+		.swiper-button-prev, .swiper-button-next, .swiper-pagination-bullet, .swiper-pagination-bullet-active{
+			visibility: hidden;
+			opacity: 0;
+			transition: visibility 0s, opacity 0.5s linear;
+		}
+		&:hover{
+			.swiper-button-prev, .swiper-button-next, .swiper-pagination-bullet, .swiper-pagination-bullet-active{
+				visibility: visible;
+				opacity: 0.8;
+				transition: visibility 0s, opacity 0.5s linear;
+			}
+		}
+	}
+}
+/* Main slider - No slider arrows on mobile */
+@include media-breakpoint-down(lg) {
+	.loe-main_slider > section > div > div > .swiper-button-next, 
+	.loe-main_slider > section > div > div > div > .swiper-button-next, 
+	.loe-main_slider > section > div > div > .swiper-button-prev,
+	.loe-main_slider > section > div > div > div > .swiper-button-prev{
+		display: none !important;
+	}
+	
+	.loe-main_slider > section > div > div > div > .swiper-pagination-bullet{
+		display: none !important;
+	}		
+}
+
+
+/* Show a bit of next/prev slide on main img */
+.swiper-slide {
+	width: 92.5%;
+}
+.loe-month_maschine > section > div > div > div > .swiper-slide{
+	width: 100% !important;
+}
+
+.loe-main_slider-mobile{
+		margin-top: -3.75rem;
+	}
+@include media-breakpoint-down(sm){
+	.loe-brands{
+		margin-top: -1.5rem;
+	}
+}
+
+@include media-breakpoint-up(sm){
+	.loe-main_slider{
+		margin-top: 3.25rem !important;
+	}
+}
+@include media-breakpoint-up(lg){
+	.loe-main_slider{
+		margin-top: 4.25rem !important;
+	}
+}
+@include media-breakpoint-up(xl){
+	.loe-main_slider{
+		margin-top: -1.5rem !important;
+	}
+}
+
+/* Mobile slider with text */
+.nw_stage-swiper-box__image-text.-small {
+  width: 100% !important;
+  font-size: 2rem !important;
+}
+
+
+/*****************************************************************************************	
+ Redaktionelle Inhalte / Service Sites	
+*****************************************************************************************/
+
+
+/********************************************
+ Tables
+********************************************/
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: $primary_col;
+   color: #fff !important;
+   opacity: 0.85;
+ }
+.table-striped>tbody>tr:nth-child(even)>td, 
+.table-striped>tbody>tr:nth-child(even)>th {
+   background-color: $highlight_col;
+   color: #fff !important;
+   opacity: 0.85;
+ }
+ .table-li{
+	color: #fff !important;
+	width: 100%;
+	font-weight: 500;
+	border-collapse: collapse !important;
+ }
+ .table-li > tbody > tr > td > a{
+	 color: #fff !important;
+	 font-weight: 500;
+	 text-decoration: underline;
+ }
+ .table-li thead{
+	color: #000 !important;
+ }
+ .table-li tbody > tr:hover{
+	 opacity: 0.6;
+ }
+
+
+/********************************************
+ Smaller font for advantage box
+********************************************/
+.nw_advantage-box--small{
+	font-size: 1.2rem !important;
+}
+
+
+/********************************************
+ Sidebar - Currently only used on "Services"
+********************************************/
+.loe_sidebar {
+	display: none;
+	position: fixed;
+	right: 0;
+	z-index: 99999;
+	background-color: white;
+	border: 1px solid black;
+	border-right: 0;
+	top: 25%;
+	max-width: 20rem;
+	padding: 1rem;
+	color: #373434;
+}
 
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––
 Markenwelten
@@ -773,6 +998,11 @@ Services
 	font-weight: 500;
 	letter-spacing: 0.05rem;
 }
+@include media-breakpoint-down(sm) {
+	.psa-button-big{
+		height: unset !important;
+	}
+}
 .nw_button--primary:hover{
 	background-color: #FFF !important;
 }
@@ -805,7 +1035,7 @@ Services
 		margin-top: 0.25rem !important;
 	}
 	.placeholder-reda-top-img{
-		margin-top: 0rem;
+		margin-top: 2rem;
 	}
 }
 @include media-breakpoint-up(sm) {
@@ -893,10 +1123,10 @@ $scrolling-img-height: 30rem;
 }
 .li-quote{
 	margin-top: 1rem !important;
-	font-size: 1.5rem !important;
+	font-size: 1rem !important;
 }
 .small-text{
-	font-size: 1rem;
+	font-size: 0.75rem;
 }
 .full-size-text{
 	background: $highlight_col;
@@ -915,75 +1145,63 @@ $scrolling-img-height: 30rem;
 }
 
 
-
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––
-Products / Produkte / Artikel
+Retouren
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.nw_tabbed-pane__content-headline{
-	display: none;
+.li-nav-item{
+	width: 50%;
+}
+.li-nav-link{
+	width: 100%;
+}
+.li-nav-item {
+	margin-bottom: 0 !important;
+}
+#myTabContent{
+	margin-top: 1rem;
+}
+.no-padding-right{
+	padding-right: 0 !important;
+}
+
+
+/*****************************************************************************************	
+ Checkout
+*****************************************************************************************/
+
+/* Checkout message for international customers */
+.nw_login__form-register::before {
+    content: "Damit für Kunden außerhalb Deutschlands online ein korrekten Steuersatz dargestellt wird, ist eine Registrierung zwingend notwendig! \A Sollte bei Auslandskunden eine Gastbestellung erfolgen, wird der Preis in der Auftragsbestätigung und Rechnung gegebenenfalls gemäß der gültigen Mehrwertsteuer angepasst. \A\A";
+	white-space: break-spaces;
+}
+
+
+
+/* Damit Kauf auf Rechnung Text beim Checkout nicht komisch aussieht */
+.nw_checkout-option__label{
+	width: 100% !important;
+}
+
+
+/* Checkout */
+.nw_cart__next-step, .nw_checkout__step-overview__next-step{
+	width: 100% !important;
+}
+.nw_addresses__address-card.is-selected > div > div > div > div{
+	color: #fff !important;
 }
 
 
 
 
 
-
-
-
-
-/* ––––––––––––––––––––––––––––––––––––––––––––––––––
-OAK THEME Adjustments
-–––––––––––––––––––––––––––––––––––––––––––––––––– */
-.nw_header__content{  /* Position megamenu */
-	position: absolute;
-	left: 0;
-	background-color: #555555;
-	padding-top: 1rem !important;
-}
-.nw_header__content{ 
-	@include media-breakpoint-up(xs) {
-		top: 4rem;
-	}
-}
-.nw_header__content{ 
-	@include media-breakpoint-up(md) {
-		top: 4.75rem;
-	}
-}
-
-.nw_header__top-navigation{
-	display: none; /* Hide standard menu */
-}
-
-@include media-breakpoint-up(xs) {
-	#nw_page-content-wrapper {
-		margin-top: 6.75rem;
-	}
-}
-@include media-breakpoint-up(sm) {
-	#nw_page-content-wrapper {
-		margin-top: 6.25rem;
-	}
-}
-@include media-breakpoint-up(sm) {
-	#nw_page-content-wrapper {
-		margin-top: 3rem;
-	}
-}
-
-
-
-.nw_navigation{
-	display: none; /* Hide standard hamburger menu */
-}
-
-.nw_search-wrapper{
-	width: 70% !important; /* Bigger search on top */
-}
+/*****************************************************************************************	
+ Search page
+*****************************************************************************************/
 
 /* Search Pages */
 .nw_breadcrumb{
-	margin: 3.5rem -2rem .5rem -1.5rem;
+	margin: -1.5rem -2rem .5rem -1.5rem;
 }
 .nw_list-navigation{
 	margin-left: 0rem;
@@ -993,65 +1211,27 @@ OAK THEME Adjustments
 	padding-right: 0 !important;
 	padding-left: 0 !important;
 }
-
-/* Arrows for sliders */
-.swiper-button-prev, .swiper-button-next {
-	width: 50px !important;
-	height: 100px !important;	
+/* Hide categories in search */
+.input-group-text.p-0.d-none.d-sm-block{
+	display: none !important;
 }
-.swiper-button-prev {
-	background-image: url("https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Links.png") !important;
+.nw_message-box__message {
+	margin-bottom: 1rem;
 }
-
-.swiper-button-next {
-	background-image: url("https://www.loechel-industriebedarf.de/upload/shoppictures_95/tinymce/frontpage_2024/Pfeil_Rechts.png") !important;
+.nw_message-box{
+	margin: 4rem 0 5px 0 !important;
 }
 
-.swiper-button-next::after, .swiper-rtl, .swiper-button-prev::after{
-	content: '' !important;
-}
 
-.swiper-pagination-bullet{ /* bigger bullets on sliders */
-	height: 35px !important;
-	width: 35px !important;
-}
 
-.swiper-pagination-bullet{ /* different bullet color and border */
-	background-color: white !important;
-	border: 3px solid black;
-}
 
-.swiper-pagination-bullet-active{
-	background-color: $primary_col !important;
-}
 
-.nw_category-box__image {
-	text-align: center !important; /* centers imgs for categories */
+/*****************************************************************************************	
+ Products / Produkte / Artikel
+*****************************************************************************************/
+.nw_tabbed-pane__content-headline{
+	display: none;
 }
-
-img{
-	max-width: 100%;
-}
-
-/* Fix hover effect on front page */ 
-.nw_category-box__image :hover{
-	box-shadow: none !important;
-}
-.nw_category-box__overlay p{
-	margin-top: 0 !important;
-	padding-top: 0.5rem;
-	padding-bottom: 0.5rem;
-	margin-bottom: 0 !important;
-}
-.nw_category-box__name{
-	background: $primary_col;
-	color: #fff;
-}
-
-.nw_product-detail{
-	margin-left: 2rem;
-}
-
 /* Colors product page */
 .nw_product-detail__price-info > div{
 	background-color: #1C3C8D;
@@ -1074,21 +1254,6 @@ img{
 .nw_breadcrumb__item a, .nw_breadcrumb__item span, .nw_breadcrumb__item i{
 	color: #000 !important;
 }
-
-/* Checkout */
-.nw_cart__next-step, .nw_checkout__step-overview__next-step{
-	width: 100% !important;
-}
-.nw_addresses__address-card.is-selected > div > div > div > div{
-	color: #fff !important;
-}
-
-/* Fix for brand display on frontpage */
-.loe-brands {
-	padding-right: 0 !important;
-	padding-left: 0 !important;
-}
-
 /* Product page - Title bold; Info not bold */
 .nw_product-detail__content-product > tbody > tr > td:nth-child(2) { 
 	font-weight: 100 !important;
@@ -1107,67 +1272,4 @@ img{
 /* Display title */
 .nw_product-detail__header > div{
 	display: block !important;
-}
-
-
-.ontext, .offtext{
-	top: 1rem !important;
-}
-
-.nw_category-box__image{
-	max-height: 380px;
-}
-.nw_category-box__image img{
-	max-height: unset !important;
-}
-
-/* Main slider - No slider arrows on mobile */
-@include media-breakpoint-down(sm) {
-	.loe-main_slider > section > div > div > .swiper-button-next, 
-	.loe-main_slider > section > div > div > div > .swiper-button-next, 
-	.loe-main_slider > section > div > div > .swiper-button-prev,
-	.loe-main_slider > section > div > div > div > .swiper-button-prev{
-		display: none !important;
-	}
-	
-	.loe-main_slider > section > div > div > div > .swiper-pagination-bullet{
-		display: none !important;
-	}		
-}
-
-
-/* Show a bit of next/prev slide on main img */
-.swiper-slide {
-	width: 92.5%;
-}
-.loe-month_maschine > section > div > div > div > .swiper-slide{
-	width: 100% !important;
-}
-
-@include media-breakpoint-up(lg){
-	.mobile-only{
-		display: none !important;
-	}
-}
-
-/* Hide categories in search */
-.input-group-text.p-0.d-none.d-sm-block{
-	display: none !important;
-}
-/* Round search bar */
-input[name="query"]{
-	background-color: #1C3C8D;
-	color: #fff;
-	border-top-left-radius: 0.375rem !important;
-	border-bottom-left-radius: 0.375rem !important;
-	border: 2px solid #fff;
-}
-input[name="query"]::placeholder{
-	color: #fff;
-}
-.input-group-text.shadow-none.px-4.btn.btn-primary{
-	border: 2px solid #fff;
-}
-.shadow-none.px-4.btn.btn-primary.nw_search-bar__barcode-scan{
-	border: 2px solid #fff;
 }

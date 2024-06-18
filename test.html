@@ -113,3 +113,76 @@
 scrolling-img-container + scrolling-img + scrolling-img-placeholder erzeugen ein Bild, welches "mitscrollt"<br>
 test<br>
 test<br>
+
+
+<meta charset="utf-8">
+
+<div class="row">
+	<div class="col-md-2 d-xs-none d-md-block"></div>
+	<div class="col col-md-8">
+		<form action="https://tectree.de/form/action.php" method="post" target="_blank" enctype="multipart/form-data">
+			<div class="nw_form-group">
+				<div class="nw_form-group__form-elements">
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Vor- und Nachname / Firma</span>              
+									<input class="form-control" name="full_name" id="full_name" type="text" required="required">
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>E-Mail Adresse</span>              
+									<input class="form-control" name="email" id="email" type="text" required="required">
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Lieferscheinnummer / Auftragsnummer / Rechnungsnummer</span>              
+									<input class="form-control" name="uniqueNum" id="uniqueNum" type="text">
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Nachricht</span>              
+									<textarea rows="5" cols="80" class="form-control" name="msg_body" id="msg_body" ></textarea>
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Anhänge</span>              
+									<input class="form-control" name="uploadedFiles[]" type="file" multiple="multiple" />
+								</label>
+							</div>
+						</div>
+					</span>
+				</div>
+			</div>
+			* = Pflichtfeld<br>
+			Informationen zur Datenschutzerklärung <a href="https://www.loechel-industriebedarf.de/datenschutz" target="_blank">(Datenschutzerklärung anzeigen)</a><br>
+			<button class="btn btn-primary" type="submit">Nachricht senden</button>
+		</form>
+	</div>
+</div>
+

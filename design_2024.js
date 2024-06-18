@@ -22,7 +22,7 @@ $(document).ready(function() {
   $(".menu > ul > li").hover(function(e) {
     if ($(window).width() > 943) {
 		if($(this).children("ul").is(":visible")){
-			$(this).children("ul").stop(true, false).fadeOut(150);
+			$(this).children("ul").stop(true, false).slideUp(600);
 		}
 		else{
 			var megamenuItems = $(".megamenu");
@@ -31,7 +31,7 @@ $(document).ready(function() {
 				console.log(megamenuItems[i].style.display);
 				megamenuItems[i].style.display = "none";
 			}
-			$(this).children("ul").stop(true, false).fadeIn(150);
+			$(this).children("ul").stop(true, false).slideDown(600);
 		}
 		
 		e.preventDefault();
@@ -59,6 +59,16 @@ $(document).ready(function() {
   //when clicked on mobile-menu, normal menu is shown as a list, classic rwd menu story (thanks mwl from stackoverflow)
 
 });
+
+/*******************************************************
+Placeholder Newsletter
+*******************************************************/
+try{
+	$("[name='emailRegister']").attr('placeholder', 'E-Mail Adresse');
+}
+catch(e){
+}
+
 
 /*******************************************************
 Lieferzeiten Anzeige
@@ -95,8 +105,8 @@ try{
 		
 		//Lieferzeit anzeigen
 		if(window.location.pathname !== "/"){
-			$( '.nw_storage-locations--is-in-stock' ).append( "<p>"+lieferzeitentext+"</p>" ); //Die Lieferzeiten an die Klasse anhängen
-			$( ".nw_storage-locations--is-not-available").append( "<p>Derzeit nicht verfügbar. Bestellware! "+lieferzeitentext_full+"</p>" ); //Die Lieferzeiten an die Klasse anhängen
+			$( '.nw_storage-locations--is-in-stock' ).prepend( lieferzeitentext + "<br />" ); //Die Lieferzeiten an die Klasse anhängen
+			$( ".nw_storage-locations--is-not-available").prepend( "Derzeit nicht verfügbar. Bestellware! "+lieferzeitentext_full + "<br />"); //Die Lieferzeiten an die Klasse anhängen
 		}
 	}	
 }
@@ -122,6 +132,7 @@ https://www.loechel-industriebedarf.de/KS_TOOLS_1502233_Spezial_Loesewerkzeug_fu
 Ausverkauft Hersteller (SOLL: "Derzeit nicht verfügbar. Bestellware! Die Lieferung erfolgt innerhalb von XX Tagen."):
 https://www.loechel-industriebedarf.de/KS_TOOLS_1502295_Bremskolben_Adapter_Satz_3_tlg_-18420330.html
 */
+
 
 
 
@@ -239,12 +250,9 @@ try{
 		var queryString = window.location.search;
 		var urlParams = new URLSearchParams(queryString);
 		var subject = urlParams.get('subject')
-		console.log(subject);
 
-
-		var elem = document.getElementById('subject');
-		$("#subject").addClass("has-value");
-		elem["firstChild"].value = subject;
+		var elem = document.getElementsByName('subject');
+		elem[0].value = subject;
 	} 
 }
 catch(e){

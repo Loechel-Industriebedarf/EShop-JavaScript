@@ -1,0 +1,189 @@
+<script type="text/javascript">
+	function showHideFirm() {
+		d = document.getElementById("customer").value;
+		if(d == "Geschäftskunde"){
+			document.getElementById("firm_form-element").classList.remove("hidden");
+			document.getElementById("firm").required = true;
+		}
+		else{
+			document.getElementById("firm_form-element").classList.add("hidden");
+			document.getElementById("firm").required = false;
+		}
+	}
+</script>
+
+<meta charset="utf-8">
+
+<div class="row">
+	<div class="col-md-2 d-xs-none d-md-block"></div>
+	<div class="col col-md-4">
+		<form action="https://tectree.de/form/action.php" method="post" target="_blank" enctype="multipart/form-data" class="needs-validation">
+			<div class="nw_form-group">
+				<div class="nw_form-group__form-elements">
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Privat- / Geschäftskunde</span>              
+									<select class="form-control" name="customer" id="customer" size="1" onchange="showHideFirm()" required>
+									  <option value="">Bitte auswählen...</option>
+									  <option>Privatkunde</option>
+									  <option>Geschäftskunde</option>
+									</select>
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input is-required hidden" id="firm_form-element">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Firma</span>              
+									<input class="form-control" name="firm" id="firm" type="text" required>
+								</label>
+							</div>
+						</div>
+					</span>
+				
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Kontaktperson</span>              
+									<input class="form-control" name="full_name" id="full_name" type="text" required>
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input  is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Telefonnummer</span>              
+									<input class="form-control" name="phoneNum" id="phoneNum" type="text" required>
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>E-Mail Adresse</span>              
+									<input class="form-control" name="email" id="email" type="email" required>
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Auftragsnummer / Lieferscheinnummer / Rechnungsnummer</span>              
+									<input class="form-control" name="uniqueNum" id="uniqueNum" type="text" required>
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<div class="col-4">
+									<label>
+										<span>Menge</span>              
+										<input class="form-control no-padding-right" name="amount" id="amount" type="number" required value="1">
+									</label>
+								</div>
+								<div class="col-8">
+									<label>
+										<span>Artikelnummer</span>              
+										<input class="form-control" name="artNr" id="artNr" type="text" required>
+									</label>
+								</div>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Retouren- / Reklamationsgrund</span>              
+									<select class="form-control" name="retReason" id="retReason" size="1" required>
+									  <option value="">Bitte auswählen...</option>
+									  <option>Rückgabe</option>
+									  <option>Falschlieferung</option>
+									  <option>Defekt</option>
+									  <option>Transportschaden</option>
+									  <option>Unterlieferung</option>
+									  <option>Überlieferung</option>
+									</select>
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Fehlerbeschreibung</span>              
+									<textarea rows="5" cols="80" class="form-control" name="msg_body" id="msg_body" required></textarea>
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Anhänge / Fotos</span>              
+									<input class="form-control" name="uploadedFiles[]" type="file" multiple="multiple" required />
+								</label>
+							</div>
+						</div>
+					</span>
+				</div>
+			</div>
+			<button class="btn btn-primary full-width" type="submit">Retouren- / Reklamationsantrag senden</button>
+	</form>
+	
+	Bitte fügen Sie bei jeglichen Reklamationen ein Foto von dem beanstandeten Mangel bei.<br>
+	* = Pflichtfeld<br>
+	Informationen zur den AGB <a href="https://www.loechel-industriebedarf.de/content/show/12348" target="_blank">(Allgemeine Geschäftsbedingungen anzeigen)</a><br>
+	Informationen zur Datenschutzerklärung <a href="https://www.loechel-industriebedarf.de/datenschutz" target="_blank">(Datenschutzerklärung anzeigen)</a><br>
+	Informationen zur Widerrufsbelehrung <a href="https://www.loechel-industriebedarf.de/content/show/15125" target="_blank">(Widerrufsbelehrung anzeigen)</a><br>
+		
+	</div>
+	<div class="col-md-4 col-12 mt-3 mt-md-0">        
+		<article class="nw_contact-person">
+			<h4 class="nw_contact-person__header mb-3">Ihr Ansprechpartner</h4>
+			<div class="nw_contact-person__content">
+				<div class="nw_contact-person__image nw_image">
+					<img class="nw_image__image mb-5" alt="Löchel Industriebedarf Retouren" style="opacity: 1;" src="/upload/ContactPersonManager_95/loechel_icon200x200.png">
+				</div>
+				
+				<p class="nw_contact-person__name">Löchel Industriebedarf Retouren</p>
+
+				<address>
+					<div class="nw_contact-person__data-entry">
+						<div class="nw_contact-person__data-entry-value">
+							<span>Tel.:</span> <a href="tel:04271 782776">04271 782776</a>
+						</div>
+					</div>
+					<div class="nw_contact-person__data-entry">
+						<div class="nw_contact-person__data-entry-value">
+							<span>eMail:</span> <a href="mailto:retouren@loechel-industriebedarf.de">retouren@loechel-industriebedarf.de</a>
+						</div>
+					</div>
+				</address>
+			</div>
+		</article>
+	</div>
+</div>

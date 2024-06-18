@@ -1,0 +1,10 @@
+{
+	"effect": "slide",
+	"centeredSlides": true,
+	"slidesPerView": "2",
+	"grabCursor": true,
+	"loop": true,
+	"centeredSlides": true,
+	"lazyPreloadPrevNext": 1,
+	"slidesPerView": "auto"
+}
