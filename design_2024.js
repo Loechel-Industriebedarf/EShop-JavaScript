@@ -19,24 +19,18 @@ $(document).ready(function() {
   //Normal menu is hidden if width is below 959px, and jquery adds mobile menu
   //Done this way so it can be used with wordpress without any trouble
 
-  $(".menu > ul > li").hover(function(e) {
+  
+  
+$(".menu > ul > li").on( "mouseenter", function() {	  
     if ($(window).width() > 943) {
-		if($(this).children("ul").is(":visible")){
-			$(this).children("ul").stop(true, false).slideUp(600);
-		}
-		else{
-			var megamenuItems = $(".megamenu");
-			//Hide ALL megamenus (failsave)
-			for(var i=0; i<megamenuItems.length; i++){
-				console.log(megamenuItems[i].style.display);
-				megamenuItems[i].style.display = "none";
-			}
-			$(this).children("ul").stop(true, false).slideDown(600);
-		}
-		
-		e.preventDefault();
+		$(this).children("ul").stop(true, true).slideDown(600);				
     }
-  });
+  })
+  .on( "mouseleave", function() {
+	if ($(window).width() > 943) {
+		$(this).children("ul").stop(true, true).slideUp(100);			
+    }
+  } );
   //If width is more than 943px dropdowns are displayed on hover
 
   $(".menu > ul > li").click(function() {
@@ -133,6 +127,43 @@ Ausverkauft Hersteller (SOLL: "Derzeit nicht verfügbar. Bestellware! Die Liefer
 https://www.loechel-industriebedarf.de/KS_TOOLS_1502295_Bremskolben_Adapter_Satz_3_tlg_-18420330.html
 */
 
+
+
+
+/*******************************************************
+Forms
+*******************************************************/
+// this is the class of the form(s)
+$(".form-ajax").submit(function(e) {
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    var actionUrl = form.attr('action');
+
+	//console.log(data); 
+    $.ajax({
+        type: 'POST',
+		data: new FormData( this ),
+        url: actionUrl,
+		contentType: false,
+		processData: false,
+        success: function(data)
+        {
+			$("#alert").removeClass("hidden");
+			if (data.indexOf("FEHLER:") >= 0){
+				$("#alert").removeClass("alert-success");
+				$("#alert").addClass("alert-danger");
+			}
+			else{
+				$("#alert").removeClass("alert-danger");
+				$("#alert").addClass("alert-success");	
+				$(".form-ajax").trigger('reset'); //Clear form on success
+			}
+			$("#alert").html( data );				
+        }
+    });
+    
+});
 
 
 

@@ -221,6 +221,7 @@
 		</div>
 	</div>	
 	
+	<div class="row">
 </div>
 
 <div class="row"></div>
@@ -228,13 +229,12 @@
 <meta charset="utf-8">
 
 <div class="row">
-	<div class="col-md-2 d-xs-none d-md-block"></div>
-	<div class="col col-md-4">
+	<div class="col col-md-6">
 		<h4>Mietanfrage stellen</h4>
-		<form action="https://tectree.de/form/vermietung.php" method="post" target="_blank" enctype="multipart/form-data" class="needs-validation">
+		<form action="https://tectree.de/form/vermietung.php" method="post" enctype="multipart/form-data" class="needs-validation form-ajax" id="form-vermietung">
 			<div class="nw_form-group">
 				<div class="nw_form-group__form-elements">					
-					<span class="nw_form-element--input is-required hidden" id="firm_form-element">
+					<span class="nw_form-element--input is-required" id="firm_form-element">
 						<div class="input-group">
 							<div class="nw_input-group">
 								<label>
@@ -299,7 +299,7 @@
 							<div class="nw_input-group">
 								<label>
 								   <span>Mietzeitraum (Start)</span>              
-									<input class="form-control" name="startDate" id="startDate" type="datetime-local">
+									<input class="form-control" name="startDate" id="startDate" type="date">
 								</label>
 							</div>
 						</div>
@@ -310,7 +310,23 @@
 							<div class="nw_input-group">
 								<label>
 								   <span>Mietzeitraum (Ende)</span>              
-									<input class="form-control" name="endDate" id="endDate" type="datetime-local">
+									<input class="form-control" name="endDate" id="endDate" type="date">
+								</label>
+							</div>
+						</div>
+					</span>
+					
+					<span class="nw_form-element--input is-required">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+								   <span>Versandart</span>              
+									<select class="form-select" name="shipping" id="shipping" size="1" required>
+									  <option value="">Bitte auswählen...</option>
+									  <option>Abholung</option>
+									  <option>Anlieferung</option>
+									  <option>Paketdienst (DHL)</option>
+									</select>
 								</label>
 							</div>
 						</div>
@@ -329,6 +345,7 @@
 				</div>
 			</div>
 			
+			<div class="alert alert-success hidden" role="alert" id="alert"></div>
 			<button class="btn btn-primary full-width" type="submit">Mietanfrage senden</button>
 	</form>
 	
@@ -339,7 +356,7 @@
 	Informationen zur Widerrufsbelehrung <a href="https://www.loechel-industriebedarf.de/content/show/15125" target="_blank">(Widerrufsbelehrung anzeigen)</a><br>
 		
 	</div>
-	<div class="col-md-4 col-12 mt-3 mt-md-0">        
+	<div class="col-md-6 col-12 mt-3 mt-md-0">        
 		<article class="nw_contact-person">
 			<h4 class="nw_contact-person__header mb-3">Ihr Ansprechpartner</h4>
 			<div class="nw_contact-person__content">
@@ -364,6 +381,9 @@
 			</div>
 		</article>
 	</div>
+</div>
+	
+	
 </div>
 
 

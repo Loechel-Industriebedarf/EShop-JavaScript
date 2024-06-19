@@ -73,6 +73,12 @@ h6{
  .text-center{
 	text-align: center;
  }
+ 
+ .center{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+ }
 
 .nw_page-title h1{
 	font-size: 2rem !important;
@@ -91,6 +97,12 @@ h6{
 	}
 }
 
+@include media-breakpoint-down(lg){
+	.no-mobile{
+		display: none !important;
+	}
+}
+
 @include media-breakpoint-down(lg){ /* No sticky top on mobile */
 	.sticky-top{
 		position: relative;
@@ -103,7 +115,10 @@ h6{
  Header	
 *****************************************************************************************/
 
-
+/* Better visible designer icon */
+.designer-activation{
+	color: pink;
+}
 /* Grey border for search */
 .nw_search__wrapper{
 	border: 1px solid #c4c4c4 !important;
@@ -1146,8 +1161,11 @@ $scrolling-img-height: 30rem;
 
 
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––
-Retouren
+Retouren / Formulare
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+#myTabContent{
+	margin-top: 1rem;
+}
 .li-nav-item{
 	width: 50%;
 }
@@ -1157,11 +1175,25 @@ Retouren
 .li-nav-item {
 	margin-bottom: 0 !important;
 }
-#myTabContent{
-	margin-top: 1rem;
-}
 .no-padding-right{
 	padding-right: 0 !important;
+}
+
+/* Alerts */
+.alert-success {
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+}
+.alert-danger {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+}
+
+/* Fix position of date select icon */
+input[type="date"]{
+	padding-right: 5px !important;
 }
 
 

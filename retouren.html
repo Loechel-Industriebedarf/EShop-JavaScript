@@ -4,10 +4,30 @@
 		if(d == "Geschäftskunde"){
 			document.getElementById("firm_form-element").classList.remove("hidden");
 			document.getElementById("firm").required = true;
+			document.getElementById("phoneNum").required = true;
+			document.getElementById("input-phoneNum").classList.add("is-required");
 		}
 		else{
 			document.getElementById("firm_form-element").classList.add("hidden");
-			document.getElementById("firm").required = false;
+			document.getElementById("firm").required = false;	
+			document.getElementById("phoneNum").required = false;
+			document.getElementById("input-phoneNum").classList.remove("is-required");
+		}
+	}
+	
+	function rueckgabeReklamation(){
+		d = document.getElementById("retReason").value;
+		if(d == "Rückgabe"){
+			document.getElementById("msg_body").required = false;
+			document.getElementById("input-msg_body").classList.remove("is-required");
+			document.getElementById("uploadedFiles").required = false;
+			document.getElementById("input-uploadedFiles").classList.remove("is-required");
+		}
+		else{
+			document.getElementById("msg_body").required = true;
+			document.getElementById("input-msg_body").classList.add("is-required");
+			document.getElementById("uploadedFiles").required = true;
+			document.getElementById("input-uploadedFiles").classList.add("is-required");
 		}
 	}
 </script>
@@ -17,7 +37,7 @@
 <div class="row">
 	<div class="col-md-2 d-xs-none d-md-block"></div>
 	<div class="col col-md-4">
-		<form action="https://tectree.de/form/retouren.php" method="post" target="_blank" enctype="multipart/form-data" class="needs-validation">
+		<form action="https://tectree.de/form/retouren.php" method="post" enctype="multipart/form-data" class="needs-validation form-ajax" id="form-retouren">
 			<div class="nw_form-group">
 				<div class="nw_form-group__form-elements">
 					<span class="nw_form-element--input is-required">
@@ -57,12 +77,12 @@
 						</div>
 					</span>
 					
-					<span class="nw_form-element--input  is-required">
+					<span class="nw_form-element--input" id="input-phoneNum">
 						<div class="input-group">
 							<div class="nw_input-group">
 								<label>
 								   <span>Telefonnummer</span>              
-									<input class="form-control" name="phoneNum" id="phoneNum" type="text" required>
+									<input class="form-control" name="phoneNum" id="phoneNum" type="text">
 								</label>
 							</div>
 						</div>
@@ -114,7 +134,7 @@
 							<div class="nw_input-group">
 								<label>
 								   <span>Retouren- / Reklamationsgrund</span>              
-									<select class="form-select" name="retReason" id="retReason" size="1" required>
+									<select class="form-select" name="retReason" id="retReason" size="1"  onchange="rueckgabeReklamation()" required>
 									  <option value="">Bitte auswählen...</option>
 									  <option>Rückgabe</option>
 									  <option>Falschlieferung</option>
@@ -128,23 +148,23 @@
 						</div>
 					</span>
 					
-					<span class="nw_form-element--input is-required">
+					<span class="nw_form-element--input" id="input-msg_body">
 						<div class="input-group">
 							<div class="nw_input-group">
 								<label>
 								   <span>Fehlerbeschreibung</span>              
-									<textarea rows="5" cols="80" class="form-control" name="msg_body" id="msg_body" required></textarea>
+									<textarea rows="5" cols="80" class="form-control" name="msg_body" id="msg_body"></textarea>
 								</label>
 							</div>
 						</div>
 					</span>
 					
-					<span class="nw_form-element--input is-required">
+					<span class="nw_form-element--input" id="input-uploadedFiles">
 						<div class="input-group">
 							<div class="nw_input-group">
 								<label>
 								   <span>Anhänge / Fotos</span>              
-									<input class="form-control" name="uploadedFiles[]" type="file" multiple="multiple" required />
+									<input class="form-control" name="uploadedFiles[]" id="uploadedFiles" type="file" multiple="multiple"/>
 								</label>
 							</div>
 						</div>
@@ -153,7 +173,8 @@
 			</div>
 			
 			<p>Bitte fügen Sie bei jeglichen Reklamationen ein Foto von dem beanstandeten Mangel bei.</p>
-			<button class="btn btn-primary full-width" type="submit">Retouren- / Reklamationsantrag senden</button>
+			<div class="alert alert-success hidden" role="alert" id="alert"></div>
+			<button class="btn btn-primary full-width" type="submit">Retouren- / Reklamationsantrag senden</button>	
 	</form>
 	
 	<br>* = Pflichtfeld<br>
