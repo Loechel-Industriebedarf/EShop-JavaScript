@@ -17,7 +17,7 @@
 <div class="row">
 	<div class="col-md-2 d-xs-none d-md-block"></div>
 	<div class="col col-md-4">
-		<form action="https://tectree.de/form/action.php" method="post" target="_blank" enctype="multipart/form-data" class="needs-validation">
+		<form action="https://tectree.de/form/retouren.php" method="post" target="_blank" enctype="multipart/form-data" class="needs-validation">
 			<div class="nw_form-group">
 				<div class="nw_form-group__form-elements">
 					<span class="nw_form-element--input is-required">
@@ -25,7 +25,7 @@
 							<div class="nw_input-group">
 								<label>
 								   <span>Privat- / Geschäftskunde</span>              
-									<select class="form-control" name="customer" id="customer" size="1" onchange="showHideFirm()" required>
+									<select class="form-select" name="customer" id="customer" size="1" onchange="showHideFirm()" required>
 									  <option value="">Bitte auswählen...</option>
 									  <option>Privatkunde</option>
 									  <option>Geschäftskunde</option>
@@ -93,13 +93,13 @@
 					<span class="nw_form-element--input is-required">
 						<div class="input-group">
 							<div class="nw_input-group">
-								<div class="col-4">
+								<div class="col-3">
 									<label>
 										<span>Menge</span>              
 										<input class="form-control no-padding-right" name="amount" id="amount" type="number" required value="1">
 									</label>
 								</div>
-								<div class="col-8">
+								<div class="col-9">
 									<label>
 										<span>Artikelnummer</span>              
 										<input class="form-control" name="artNr" id="artNr" type="text" required>
@@ -114,7 +114,7 @@
 							<div class="nw_input-group">
 								<label>
 								   <span>Retouren- / Reklamationsgrund</span>              
-									<select class="form-control" name="retReason" id="retReason" size="1" required>
+									<select class="form-select" name="retReason" id="retReason" size="1" required>
 									  <option value="">Bitte auswählen...</option>
 									  <option>Rückgabe</option>
 									  <option>Falschlieferung</option>
