@@ -18,19 +18,22 @@
 	function rueckgabeReklamation(){
 		d = document.getElementById("retReason").value;
 		if(d == "Rückgabe"){
-			document.getElementById("msg_body").required = false;
-			document.getElementById("input-msg_body").classList.remove("is-required");
 			document.getElementById("uploadedFiles").required = false;
 			document.getElementById("input-uploadedFiles").classList.remove("is-required");
 		}
 		else{
-			document.getElementById("msg_body").required = true;
-			document.getElementById("input-msg_body").classList.add("is-required");
 			document.getElementById("uploadedFiles").required = true;
 			document.getElementById("input-uploadedFiles").classList.add("is-required");
 		}
 	}
+	
+	function enableBtn(){
+		document.getElementById("submitButton").disabled = false;
+		document.getElementById("captcha").value = grecaptcha.getResponse();
+	 }
 </script>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 <meta charset="utf-8">
 
@@ -113,25 +116,6 @@
 					<span class="nw_form-element--input is-required">
 						<div class="input-group">
 							<div class="nw_input-group">
-								<div class="col-3">
-									<label>
-										<span>Menge</span>              
-										<input class="form-control no-padding-right" name="amount" id="amount" type="number" required value="1">
-									</label>
-								</div>
-								<div class="col-9">
-									<label>
-										<span>Artikelnummer</span>              
-										<input class="form-control" name="artNr" id="artNr" type="text" required>
-									</label>
-								</div>
-							</div>
-						</div>
-					</span>
-					
-					<span class="nw_form-element--input is-required">
-						<div class="input-group">
-							<div class="nw_input-group">
 								<label>
 								   <span>Retouren- / Reklamationsgrund</span>              
 									<select class="form-select" name="retReason" id="retReason" size="1"  onchange="rueckgabeReklamation()" required>
@@ -148,12 +132,12 @@
 						</div>
 					</span>
 					
-					<span class="nw_form-element--input" id="input-msg_body">
+					<span class="nw_form-element--input  is-required" id="input-msg_body">
 						<div class="input-group">
 							<div class="nw_input-group">
 								<label>
-								   <span>Fehlerbeschreibung</span>              
-									<textarea rows="5" cols="80" class="form-control" name="msg_body" id="msg_body"></textarea>
+								   <span>Artikelnummer / Menge / Fehlerbeschreibung bzw. Zusatzinformationen</span>              
+									<textarea rows="5" cols="80" class="form-control" name="msg_body" id="msg_body" required></textarea>
 								</label>
 							</div>
 						</div>
@@ -169,12 +153,24 @@
 							</div>
 						</div>
 					</span>
+					
+					<p>Bitte fügen Sie bei jeglichen Reklamationen ein Foto von dem beanstandeten Mangel bei.</p>
+					
+					<span class="nw_form-element--input">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+									<div class="g-recaptcha" data-sitekey="6LeXRgUqAAAAAHeHrQHiXA9tF3CUxfsC_cfwmOi_" data-callback="enableBtn"></div>
+									<input type="hidden" name="captcha" id="captcha" value="">
+								</label>
+							</div>
+						</div>
+					</span>
 				</div>
 			</div>
 			
-			<p>Bitte fügen Sie bei jeglichen Reklamationen ein Foto von dem beanstandeten Mangel bei.</p>
 			<div class="alert alert-success hidden" role="alert" id="alert"></div>
-			<button class="btn btn-primary full-width" type="submit">Retouren- / Reklamationsantrag senden</button>	
+			<button class="btn btn-primary full-width" type="submit"  disabled="disabled" id="submitButton">Retouren- / Reklamationsantrag senden</button>	
 	</form>
 	
 	<br>* = Pflichtfeld<br>

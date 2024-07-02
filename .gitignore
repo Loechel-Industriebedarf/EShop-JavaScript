@@ -4,3 +4,4 @@ phpmail/composer.lock
 phpmail/action.php
 phpmail/retouren.php
 phpmail/vermietung.php
+phpmail/verifyCaptcha.php

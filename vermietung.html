@@ -2,7 +2,15 @@
 	window.addEventListener('load', function () {
 		enableLOESidebar();
 	})
+	
+	 function enableBtn(){
+		document.getElementById("submitButton").disabled = false;
+		document.getElementById("captcha").value = grecaptcha.getResponse();
+	 }
 </script>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 
 
 <div class="container container-li">
@@ -342,11 +350,22 @@
 							</div>
 						</div>
 					</span>
+					
+					<span class="nw_form-element--input">
+						<div class="input-group">
+							<div class="nw_input-group">
+								<label>
+									<div class="g-recaptcha" data-sitekey="6LeXRgUqAAAAAHeHrQHiXA9tF3CUxfsC_cfwmOi_" data-callback="enableBtn"></div>
+									<input type="hidden" name="captcha" id="captcha" value="">
+								</label>
+							</div>
+						</div>
+					</span>
 				</div>
 			</div>
 			
 			<div class="alert alert-success hidden" role="alert" id="alert"></div>
-			<button class="btn btn-primary full-width" type="submit">Mietanfrage senden</button>
+			<button class="btn btn-primary full-width" type="submit" disabled="disabled" id="submitButton">Mietanfrage senden</button>
 	</form>
 	
 	<br>* = Pflichtfeld<br>
