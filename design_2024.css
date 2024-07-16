@@ -591,7 +591,7 @@ Mobile style's
 }
 @include media-breakpoint-up(sm) {
 	#nw_page-content-wrapper {
-		margin-top: 7rem;
+		margin-top: 8rem;
 	}
 }
 @include media-breakpoint-up(lg) {
@@ -881,8 +881,9 @@ Slider
 
 
 /* Show a bit of next/prev slide on main img */
-.swiper-slide {
-	width: 92.5%;
+.loe-main_slider > section > div > div {
+	padding-left: 4%;
+	padding-right: 4%;
 }
 .loe-month_maschine > section > div > div > div > .swiper-slide{
 	width: 100% !important;
@@ -919,6 +920,10 @@ Slider
   font-size: 2rem !important;
 }
 
+/* Services border only on top */
+.nw_image.nw_category-box__image > .nw_image__image{
+	border-radius: 9px 9px 0 0 !important;
+}
 
 /*****************************************************************************************	
  Redaktionelle Inhalte / Service Sites	
@@ -989,17 +994,46 @@ Slider
 Markenwelten
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .markenwelt-section { background-color:#F2F2F2 }
-.markenwelt-section p > img    { width: 1237px; }
+.markenwelt-section p { max-width: 1920px; }
+.markenwelt-section p > img    { max-width: 100%; }
 .markenwelt-section table > tbody > tr > td > a > img { 
 	width: 100%; 
 	max-height: 300px;
 	mix-blend-mode: multiply;
+}
+.markenwelt-section > div > div > a > img:hover, .li-hover:hover{
+	opacity: 0.8;
+	filter: grayscale(0.25);
 }
 .anchor{
 	position: absolute;
 	visibility: hidden;
 	height: 0px !important;
 	margin-top: -8rem !important;
+}
+
+.container-li{
+	overflow-y: hidden;
+}
+
+.no-bg{
+	background-color: transparent !important;
+}
+
+.business-card{
+	width: 35% !important;
+}
+
+@include media-breakpoint-up(md) {
+	.img-md-left > a > img{
+		float: left;
+	}
+	.img-md-center{
+		text-align: center;
+	}
+	.img-md-right > a > img{
+		float: right;
+	}
 }
 
 
@@ -1022,6 +1056,10 @@ Services
 	font-size: 2.5rem;
 	font-weight: 500;
 	letter-spacing: 0.05rem;
+}
+.psa-button-medium{
+	height: 3rem;
+	width: 50%;
 }
 @include media-breakpoint-down(sm) {
 	.psa-button-big{

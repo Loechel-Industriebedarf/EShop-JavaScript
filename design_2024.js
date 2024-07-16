@@ -23,19 +23,19 @@ $(document).ready(function() {
   
 $(".menu > ul > li").on( "mouseenter", function() {	  
     if ($(window).width() > 1023) {
-		$(this).children("ul").stop(true, true).slideDown(600);				
+		$(this).children("ul").stop(true, true).slideDown(0);				
     }
   })
   .on( "mouseleave", function() {
 	if ($(window).width() > 1023) {
-		$(this).children("ul").stop(true, true).slideUp(100);			
+		$(this).children("ul").stop(true, true).slideUp(0);			
     }
   } );
   //If width is more than 943px dropdowns are displayed on hover
 
   $(".menu > ul > li").click(function() {
     if ($(window).width() <= 1023) {
-      $(this).children("ul").fadeToggle(150);
+      $(this).children("ul").fadeToggle(0);
     }
   });
   //If width is less or equal to 943px dropdowns are displayed on click (thanks Aman Jain from stackoverflow)

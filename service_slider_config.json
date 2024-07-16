@@ -75,6 +75,7 @@
 	"centeredSlides": true,
 	"slidesPerView": 2,
 	"lazyPreloadPrevNext": 1,
+	"initialSlide": 4,
 	"pagination": {
 		"enabled": false
 	}
