@@ -235,6 +235,10 @@ Markenwelten
 if(window.location.href == "https://www.loechel-industriebedarf.de/nwsearch/execute?query=brennenstuhl"){ 
 	window.location.replace("https://www.loechel-industriebedarf.de/brennenstuhl-markenwelt");
 } 
+if(window.location.href == "https://www.loechel-industriebedarf.de/nwsearch/execute?query=mas"){ 
+	window.location.replace("https://www.loechel-industriebedarf.de/mas-markenwelt");
+} 
+
 
 
 

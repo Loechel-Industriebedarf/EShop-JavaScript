@@ -1005,6 +1005,9 @@ Markenwelten
 	opacity: 0.8;
 	filter: grayscale(0.25);
 }
+.markenwelt-section > div > div > a > img{
+	mix-blend-mode: multiply;
+}
 .anchor{
 	position: absolute;
 	visibility: hidden;
