@@ -63,6 +63,18 @@ try{
 catch(e){
 }
 
+/*******************************************************
+Artikel ohne Bild nicht kaufbar
+*******************************************************/
+try{
+	if(document.getElementsByClassName('swiper-zoom-container')[0].innerHTML.includes("productMime/detail.jpg") || document.getElementsByClassName('swiper-zoom-container')[0].innerHTML.includes("nopicture_all.jpg")){
+	  document.getElementsByClassName('nw_product-detail__price-info')[0].innerHTML  = '<div><div class="container">Dieses Produkt steht derzeit nicht zum Verkauf.</div></div>';
+	}
+}
+catch(e){
+}
+
+
 
 /*******************************************************
 Lieferzeiten Anzeige
@@ -88,12 +100,12 @@ try{
 		var lieferzeitentext_full = lieferzeitentext;
 				
 		//Lieferzeit vermindern, wenn in Gießen auf Lager
-		if (document.querySelector('.nw_storage-locations--is-in-stock') !== null && $( ".nw_storage-locations--is-in-stock" ).text().indexOf("Gießen") >= 0){
+		if (document.querySelector('.nw_storage-locations--is-in-stock') !== null && $( ".nw_storage-locations--is-in-stock" ).not('.nw_storage-locations__toggle').text().indexOf("Gießen") > 0){
 		   lieferzeitentext = lieferzeitentext.replace(/[0-9]+/g, "3"); //Wenn die Ware auf Lager ist, wird die Lieferzeit auf 3 Tage gesetzt
 		} 
 		
 		//Lieferzeit vermindern, wenn in Sulingen auf Lager
-		if (document.querySelector('.nw_storage-locations--is-in-stock') !== null && $( ".nw_storage-locations--is-in-stock" ).text().indexOf("Sulingen") >= 0){
+		if (document.querySelector('.nw_storage-locations--is-in-stock') !== null && $( ".nw_storage-locations--is-in-stock" ).not('.nw_storage-locations__toggle').text().indexOf("Sulingen") > 0){
 		   lieferzeitentext = lieferzeitentext.replace(/[0-9]+/g, "2"); //Wenn die Ware auf Lager ist, wird die Lieferzeit auf 2 Tage gesetzt
 		} 
 		
@@ -219,10 +231,15 @@ catch(e){
 Meldung bei Kauf auf Rechnung
 *******************************************************/
 try{
-	$('.nw_checkout-option__label').each(function() {
-		var text = $(this).text();
-		$(this).text(text.replace('Kauf auf Rechnung', 'Kauf auf Rechnung - Nur für Schulen, Behörden, Vereine und im Handelsregister eingetragene Unternehmen nach positiver Bonitätsprüfung. Wir behalten uns vor, die Zahlungsart gegebenenfalls abzuändern.')); 
-	});
+	$("span").filter(function() {
+	// Matches exact string   
+	return $(this).text() === "Kauf auf Rechnung";
+	}).replaceWith('<span>Kauf auf Rechnung - Nur für Schulen, Behörden, Vereine und im Handelsregister eingetragene Unternehmen nach positiver Bonitätsprüfung. Wir behalten uns vor, die Zahlungsart gegebenenfalls abzuändern.</span>'); 
+
+	$("span").filter(function() {
+	// Matches exact string   
+	return $(this).text() === "Abholung";
+	}).replaceWith('<span>Abholung - <b>Achtung Abholung</b>: Diese Bestellung wird bei uns in Sulingen von Ihnen abgeholt!</span>'); 
 }
 catch(e){
 }
