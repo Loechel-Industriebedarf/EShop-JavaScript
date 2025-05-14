@@ -185,6 +185,10 @@ h6{
 	background: #484848;
 }
 
+.form-check-label {
+  align-items: flex-start !important;
+}
+
 
 /*********************************************
  Search
@@ -882,8 +886,8 @@ Slider
 
 /* Show a bit of next/prev slide on main img */
 .loe-main_slider > section > div > div {
-	padding-left: 4%;
-	padding-right: 4%;
+	/*padding-left: 4%;
+	padding-right: 4%;*/
 }
 .loe-month_maschine > section > div > div > div > .swiper-slide{
 	width: 100% !important;

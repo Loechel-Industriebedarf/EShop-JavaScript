@@ -1,0 +1,462 @@
+<style type="text/css">/* Import der Schriftart */
+  @font-face {
+  font-family: 'Apertura';
+font-display: swap;
+  src: local(''),
+ url('/upload/shoppictures_40/fonts/fonnts.com-Apertura_Regular.woff') format('woff'), /* Super Modern Browsers */
+}
+@font-face {
+  font-family: 'Apertura bold';
+font-display: swap;
+  src: local(''),
+ url('/upload/shoppictures_40/fonts/fonnts.com-Apertura_Bold.woff') format('woff'), /* Super Modern Browsers */
+}
+  
+/* Allgemeine Styles START */
+    /* Sections */
+    .tecwerk-markenwelt section:not(.full-width) {
+        max-width: 1400px;
+        margin: 0px auto;
+        margin-bottom: 3rem;
+        padding: 20px;
+    }
+
+    section.tecwerk-slider-section {
+        margin-bottom: 6rem;
+    }
+
+    /* Bestehendes padding / margin ausblenden */
+    .container-fluid.nw_page-section.nw_content {
+        padding: 0px;
+    }
+
+    .nw_breadcrumb.navbar.navbar-expand {
+        margin-bottom: 0px;
+    }
+
+    #nw_page-content-wrapper {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .nw_breadcrumb {
+      margin: 0px !important;
+    }
+
+    /* Allgemeine TECWERK */
+
+    .tecwerk-btn {
+        background-color: #00b2b7;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 25px;
+    }
+/* Allgemeine Styles ENDE */
+
+/* Hero Section START*/
+
+        .tecwerk-hero-container {
+        position: relative;
+    }
+
+    .tecwerk-hero-overlay {
+        position: absolute;
+        /*
+        background-image: url('https://download.nordwest.com/ib/tecwerk/triangle.svg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        */
+        height: 83px;
+        width: 80px;
+        bottom: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .tecwerk-hero-picture img {
+        width: 100%;
+    }
+
+    @media (max-width: 800px) {
+        .tecwerk-hero-overlay {
+            display: none;
+        }
+    }
+/* Hero Section ENDE */
+    
+
+/* TEXTBLOCK START*/
+    span.subheader {
+        padding-left: 45px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        font-family: 'Apertura';
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 18px;
+        text-align: left;
+        color: #00b2b7;
+        background: url(https://download.nordwest.com/ib/tecwerk/icon_teal_line.svg) no-repeat left center;
+    }
+    .header {
+        font-family: Apertura bold;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 46px;
+        text-align: left;
+        color: #033866;
+        margin: 0;
+        margin-top: 15px;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+    @media (min-width: 1024px) {
+        .textpicContainer .textContainer {
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            gap: 60px;
+            margin-bottom: 115px;
+    
+        }
+    }
+    .textBodyContainer{
+        margin: auto 0px;
+    }
+    
+    .textpicContainer .textContainer .textBodyContainer p {
+        font-family: apertura;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        text-align: left;
+        color: #3c3c3c;
+    }
+/* TEXTBLOCK ENDE */
+    
+/* WG Cards START*/
+    .tecwerk-grid-section {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        justify-items: center;
+    }
+    .tecwerk-grid-section h3{
+      font-size: 1.5rem;
+    }
+    .tealine{
+        margin: 18px 0;
+        padding: 0;
+        width: 25px;
+        height: 0;
+        border-top: 1px solid #009397;
+        -webkit-transition: 1s width;
+        transition: 1s width;
+    }
+    .tecwerk-card{
+        border: 1px solid #e6e6e6;
+        width: 300px;
+        color: #033866;
+    }
+    .tecwerk-card:hover .tealine{
+        width: 70px;
+    }
+    .tecwerk-card a{
+        color: #033866;
+        text-decoration: none;
+    }
+    .tecwerk-card a:hover{
+        color: #009397;
+        text-decoration: none;
+    }
+    .tecwerk-card img{ 
+        max-width: 100%;
+    }
+    .tecwerk-card-text{
+        padding: 15px 35px;
+        font-family: apertura;
+    }
+    
+    .rotating-arrow::before {
+        content: ""; /* Notwendig für ::before */
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: url("https://download.nordwest.com/ib/tecwerk/icon_rotating_arrow.svg") 
+                    no-repeat center center;
+        background-size: contain; /* Sorgt für eine saubere Skalierung */
+        transition: transform 0.2s ease-in;
+        margin-right: 8px;
+    }
+    
+    /* Falls die Rotation aktiv sein soll */
+    .rotating-arrow:hover::before {
+        transform: rotate(45deg);
+    }
+    
+/* WG Cards ENDE */
+    
+/* USP Cards START*/
+    .tecwerk-usp-container {
+      font-family: apertura;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      justify-items: center;
+      
+    }
+    
+    .tecwerk-usp-card {
+      position: relative;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        z-index: 100;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: fit-content;
+    }
+    
+    .layer-container {
+      align-content: center;
+      text-align: center;
+      position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        top: 0;
+        left: 0;
+        z-index: 200;
+        background-color: #f9f9f9;
+        opacity: 0;
+        -webkit-transition: opacity .5s;
+        transition: opacity .5s;
+        
+    }
+    .triangle-container {
+        position: absolute;
+        z-index: 300;
+        background: url(https://download.nordwest.com/ib/tecwerk/triangle.svg) no-repeat top left;
+        width: 54px;
+        height: 56px;
+        background-size: contain;
+        top: 0;
+        right: 20px;
+        -webkit-transform-origin: top;
+        -ms-transform-origin: top;
+        transform-origin: top;
+        -webkit-transition: right .5s, -webkit-transform .5s;
+        transition: right .5s, -webkit-transform .5s;
+        transition: right .5s, transform .5s;
+        transition: right .5s, transform .5s, -webkit-transform .5s;
+    }
+    .layer-container:hover {
+      opacity: 1;
+    }
+    
+    .tecwerk-usp-card:hover .triangle-container {
+        right: calc(50% - 20px);
+        -webkit-transform: scale(.5);
+        -ms-transform: scale(.5);
+        transform: scale(.5);
+    }
+    
+    .title-container {
+      font-family: Apertura;
+        background-color: #f9f9f9;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 26px;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+/* USP Cards ENDE*/
+
+
+/* Highlight Section START */
+    .tecwerk-highlight {
+      position: relative;
+    background-color: #033866;
+    color: #fff;
+    height: 200px;
+    align-content: center;
+    font-family: Apertura bold;
+    }
+    .highlight-image {
+      background: url(https://download.nordwest.com/ib/tecwerk/yellow_vector_1.png) no-repeat;
+      position: absolute;
+      left: 70%;
+      top: 0;  
+      width: 250px;
+      height: 182px;     
+    }
+    .highlight-content {
+      align-items: center;
+      text-align: center;
+    }
+
+    .highlight-content span {
+      color: #00b2b7;
+      font-weight: 600;
+    }
+    @media (max-width: 1400px) {
+      .highlight-image {
+        display: none;
+      }
+    }
+/* Highlight Section ENDE */
+</style>
+<article class="tecwerk-markenwelt">
+<section class="tecwerk-slider-section full-width">
+<div class="tecwerk-hero-container"><picture class="tecwerk-hero-picture"> <source media="(max-width: 800px)" srcset="https://download.nordwest.com/ib/tecwerk/webbanner_mobile_1.png" /> <img alt="Responsive Bild" src="https://download.nordwest.com/ib/tecwerk/webbanner_1.png" /> </picture>
+<div class="tecwerk-hero-overlay"><a href="#" onclick="window.scrollBy({ top: 300, behavior: 'smooth' }); return false;"><img alt="" src="https://download.nordwest.com/ib/tecwerk/triangle.svg" /></a></div>
+</div>
+</section>
+
+<section class="tecwerk-info-section">
+<div class="marginContainer textpicContainer margin-bottom-"><span class="subheader" id="ziel">Kurzprofil der Marke</span>
+
+<h1 class="header">TECWERK &ndash; Profi-Qualit&auml;t von Ihrem Fachgro&szlig;h&auml;ndler!</h1>
+
+<div class="textContainer">
+<div class="textBodyContainer">
+<p>Die Profis aus Bau, Handwerk und Industrie erbringen Tag f&uuml;r Tag H&ouml;chstleistungen. Seit &uuml;ber 35 Jahren vertrauen sie dabei auf TECWERK (ehemals bekannt unter PROMAT). TECWERK ist Qualit&auml;t pur: Mit vielen Produktinnovationen, einem vielf&auml;ltigen und attraktiven Sortiment von Handwerkzeugen, Pr&auml;zisionstechnik, Oberfl&auml;chentechnik, Arbeitsschutz und Industrieausr&uuml;stung &uuml;berzeugt TECWERK mit einem absolut starken Preis-Leistungs-Verh&auml;ltnis. TECWERK hei&szlig;t Partnerschaft, denn nur Mensch und Technik im Zusammenspiel erschaffen einzigartige Werke. TECWERK gibt&rsquo;s beim Fachgro&szlig;handel und steht f&uuml;r ehrliches Handwerk, verl&auml;ssliche Funktionalit&auml;t, h&ouml;chste Pr&auml;zision und Spitzen-Qualit&auml;t. Entdecken Sie jetzt unser Sortiment mit &uuml;ber 10.000 Produkten und finden Sie Ihren TECWERK-H&auml;ndler in Ihrer N&auml;he!</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="tecwerk-card-section">
+<div class="tecwerk-container"><span class="subheader">Produkte</span>
+
+<h2 class="header">Hier finden Sie eine &Uuml;bersicht &uuml;ber die TOPSELLER des TECWERK Sortiments:</h2>
+
+<div class="tecwerk-grid-section">
+<div class="tecwerk-card"><img alt="Arbeitsschutz" src="https://download.nordwest.com/ib/tecwerk/tw_as.jpg" />
+<div class="tecwerk-card-text">
+<h3>Arbeitsschutz</h3>
+
+<div class="tealine">&nbsp;</div>
+<a class="rotating-arrow" href="/tecwerk-topseller/arbeitsschutz">ZU DEN ARTIKELN</a></div>
+</div>
+
+<div class="tecwerk-card"><img alt="Technischer Handel" src="https://download.nordwest.com/ib/tecwerk/tw_th.jpg" />
+<div class="tecwerk-card-text">
+<h3>Technischer Handel</h3>
+
+<div class="tealine">&nbsp;</div>
+<a class="rotating-arrow" href="/tecwerk-topseller/technischer-handel">ZU DEN ARTIKELN</a></div>
+</div>
+
+<div class="tecwerk-card"><img alt="Industriebedarf" src="https://download.nordwest.com/ib/tecwerk/tw_i.jpg" />
+<div class="tecwerk-card-text">
+<h3>Industriebedarf</h3>
+
+<div class="tealine">&nbsp;</div>
+<a class="rotating-arrow" href="/tecwerk-topseller/industriebedarf">ZU DEN ARTIKELN</a></div>
+</div>
+
+<div class="tecwerk-card"><img alt="Handwerkzeuge" src="https://download.nordwest.com/ib/tecwerk/tw_h.jpg" />
+<div class="tecwerk-card-text">
+<h3>Handwerkzeuge</h3>
+
+<div class="tealine">&nbsp;</div>
+<a class="rotating-arrow" href="/tecwerk-topseller/handwerkzeuge">ZU DEN ARTIKELN</a></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="tecwerk-highlight-section full-width">
+<div class="tecwerk-highlight">
+<div class="highlight-content">
+<h3>Entdecke unser komplettes <span>TECWERK Sortiment</span></h3>
+<br />
+<a class="tecwerk-btn" href="/tecwerk">Zum Sortiment</a></div>
+
+<div class="highlight-image">&nbsp;</div>
+</div>
+</section>
+
+<section class="tecwerk-usp-section"><span class="subheader">USPs</span>
+
+<h2 class="header">TECWERK punktet f&uuml;nffach</h2>
+
+<div class="tecwerk-usp-container">
+<div class="tecwerk-usp-card">
+<div class="triangle-container">&nbsp;</div>
+
+<div class="layer-container">
+<p>Unsere Partner-H&auml;ndler stehen Ihnen mit Profi-Tipps und Know-how zur Seite. Hier bekommen Sie nicht nur das richtige Werkzeug, sondern auch die beste Beratung im regionalen Fachgro&szlig;handel oder pers&ouml;nlich bei Ihnen im Betrieb.</p>
+</div>
+
+<div class="image-title-container"><img alt="" src="https://download.nordwest.com/ib/tecwerk/usp-1.png" />
+<div class="title-container">Fachberatung<br />
+direkt vor Ort</div>
+</div>
+</div>
+
+<div class="tecwerk-usp-card">
+<div class="triangle-container">&nbsp;</div>
+
+<div class="layer-container">
+<p>&Uuml;ber 9.000 Artikel &ndash; und das ist erst der Anfang! Von A wie Abisolierzange bis Z wie Zurrgurt &ndash; alles, was Sie f&uuml;r Ihre Arbeit brauchen, finden Sie im breiten TECWERK-Sortiment in den Bereichen Arbeitsschutz, Werkzeuge, Industriebedarf, Betriebseinrichtung und Oberfl&auml;chentechnik.</p>
+</div>
+
+<div class="image-title-container"><img alt="" src="https://download.nordwest.com/ib/tecwerk/usp-2.png" />
+<div class="title-container">Mehr Auswahl,<br />
+mehr M&ouml;glichkeiten</div>
+</div>
+</div>
+
+<div class="tecwerk-usp-card">
+<div class="triangle-container">&nbsp;</div>
+
+<div class="layer-container">
+<p>TECWERK steht f&uuml;r zuverl&auml;ssige Tools, die im Arbeitsalltag bestehen. Robust, langlebig und einfach top. TECWERK Produkte werden unter h&ouml;chsten Produktionsstandards gefertigt.</p>
+</div>
+
+<div class="image-title-container"><img alt="" src="https://download.nordwest.com/ib/tecwerk/usp-3.png" />
+<div class="title-container">Qualit&auml;t,<br />
+die &uuml;berzeugt</div>
+</div>
+</div>
+
+<div class="tecwerk-usp-card">
+<div class="triangle-container">&nbsp;</div>
+
+<div class="layer-container">
+<p>Keine Zeit verlieren! Unsere Produkte sind jederzeit verf&uuml;gbar &ndash; in 24 Stunden deutschlandweit &uuml;ber das Zentrallager geliefert. Per Spedition oder Paketversand wird Ihre TECWERK-Bestellung ausgeliefert &ndash; auf Wunsch direkt auf die Baustelle.</p>
+</div>
+
+<div class="image-title-container"><img alt="" src="https://download.nordwest.com/ib/tecwerk/usp-4.png" />
+<div class="title-container">Ihre Tools,<br />
+immer griffbereit</div>
+</div>
+</div>
+
+<div class="tecwerk-usp-card">
+<div class="triangle-container">&nbsp;</div>
+
+<div class="layer-container">
+<p>TECWERK ist speziell f&uuml;r alle Handwerk- und Industrieeins&auml;tze konzipiert, um h&ouml;chste Anspr&uuml;che und Anforderungen zu erf&uuml;llen. Hier bezahlen Sie die Produktqualit&auml;t und nicht die Marke &ndash; eben f&uuml;r echte Macher und keine Poser!</p>
+</div>
+
+<div class="image-title-container"><img alt="" src="https://download.nordwest.com/ib/tecwerk/usp-5.png" />
+<div class="title-container">Exklusiv<br />
+f&uuml;r Profis</div>
+</div>
+</div>
+</div>
+</section>
+</article>
