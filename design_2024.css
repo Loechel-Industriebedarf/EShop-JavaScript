@@ -258,7 +258,6 @@ Screen style's
   margin: 0 auto;
   background: transparent;
   float: left;
-  padding-left: 2.5%;
 }
 
 .menu-mobile {
@@ -1253,12 +1252,12 @@ input[type="date"]{
 
 
 /*****************************************************************************************	
- Checkout
+ Checkout / Registrierung
 *****************************************************************************************/
 
 /* Checkout message for international customers */
-.nw_login__form-register::before {
-    content: "Damit für Kunden außerhalb Deutschlands online ein korrekten Steuersatz dargestellt wird, ist eine Registrierung zwingend notwendig! \A Sollte bei Auslandskunden eine Gastbestellung erfolgen, wird der Preis in der Auftragsbestätigung und Rechnung gegebenenfalls gemäß der gültigen Mehrwertsteuer angepasst. \A\A";
+.nw_login__register::after {
+    content: "\A Damit für Kunden außerhalb Deutschlands online ein korrekten Steuersatz dargestellt wird, ist eine Registrierung zwingend notwendig! \A Sollte bei Auslandskunden eine Gastbestellung erfolgen, wird der Preis in der Auftragsbestätigung und Rechnung gegebenenfalls gemäß der gültigen Mehrwertsteuer angepasst. \A\A Innergemeinschaftliche Lieferungen sind nur auf Anfrage möglich! Senden Sie uns hier nach Ihrer Registrierung einfach eine kurze E-Mail. \A\A";
 	white-space: break-spaces;
 }
 
@@ -1276,6 +1275,15 @@ input[type="date"]{
 }
 .nw_addresses__address-card.is-selected > div > div > div > div{
 	color: #fff !important;
+}
+.nw_cart__totals > div > div > a{
+		color: #fff !important;
+}
+
+/* Warnung für innergemeinschaftliche Lieferung und MwSt. bei der Anmeldung */
+.offcanvas-body::after {
+	content: "\A Damit für Kunden außerhalb Deutschlands online ein korrekten Steuersatz dargestellt wird, ist eine Registrierung zwingend notwendig! \A Innergemeinschaftliche Lieferungen sind nur auf Anfrage möglich! Senden Sie uns hier nach Ihrer Registrierung einfach eine kurze E-Mail.";
+	white-space: break-spaces;
 }
 
 
@@ -1314,7 +1322,7 @@ input[type="date"]{
 
 
 /*****************************************************************************************	
- Products / Produkte / Artikel
+ Products / Produkte / Artikel / Article
 *****************************************************************************************/
 .nw_tabbed-pane__content-headline{
 	display: none;
@@ -1330,7 +1338,7 @@ input[type="date"]{
 .nw_product-detail__legal-shipping a{
 	color: #fff !important;
 }
-.nw_product-detail__add-to-cart-button {
+.nw_product-detail__add-to-cart-button, .btn-primary {
 	color: #fff !important;
 	background-color: #2094D2;
 }
@@ -1367,4 +1375,20 @@ input[type="date"]{
 
 .nw_amount-input__minus, .nw_amount-input__plus{
 	background-color: #2094D2 !important;
+}
+
+.btn, .btn:hover, .form-control {
+	border-width: 1px;
+	border-style: solid;
+	border-color: black;
+	outline: 1px solid white;
+}
+
+.navbar > div > div > button, .navbar > div > div > .btn{
+	outline: none !important;
+}
+
+.nw_product-price-box__body > div > button{
+	outline: none !important;
+	border-width: 0px !important;
 }
