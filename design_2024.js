@@ -95,25 +95,40 @@ try{
 		}
 		var lieferindex = lieferhtml.indexOf("Die Lieferung erfolgt innerhalb"); 
 		var lieferzeitentext_temp = lieferhtml.substring(lieferindex, lieferindex+100); //Alles vor "Die Lieferung erfolgt innerhalb" abschneiden
-		var lieferindex = lieferzeitentext_temp.indexOf("<br>"); //Nach dem <br> suchen, um alles danach abzuschneiden
+		var lieferindex = lieferzeitentext_temp.indexOf("&lt;br&gt;"); //Nach dem <br> suchen, um alles danach abzuschneiden
 		var lieferzeitentext = lieferzeitentext_temp.substring(0, lieferindex); //Vom neuen String alles nach dem <br> abschneiden, dass nur noch der String übrig bleibt, den wir benötigen
 		var lieferzeitentext_full = lieferzeitentext;
+		
+		var availabilityCircleColor = $('.bi-circle-fill').css("color").toString();
 				
-		//Lieferzeit vermindern, wenn in Gießen auf Lager
-		if (document.querySelector('.nw_storage-locations--is-in-stock') !== null && $( ".nw_storage-locations--is-in-stock" ).not('.nw_storage-locations__toggle').text().indexOf("Gießen") > 0){
-		   lieferzeitentext = lieferzeitentext.replace(/[0-9]+/g, "3"); //Wenn die Ware auf Lager ist, wird die Lieferzeit auf 3 Tage gesetzt
-		} 
+		
 		
 		//Lieferzeit vermindern, wenn in Sulingen auf Lager
-		if (document.querySelector('.nw_storage-locations--is-in-stock') !== null && $( ".nw_storage-locations--is-in-stock" ).not('.nw_storage-locations__toggle').text().indexOf("Sulingen") > 0){
+		if (availabilityCircleColor !== "rgb(183, 28, 28)" && $( ".nw_storage-locations--is-in-stock" ).not('.nw_storage-locations__toggle')[0]["textContent"].indexOf("Sulingen") > 0 ){
 		   lieferzeitentext = lieferzeitentext.replace(/[0-9]+/g, "2"); //Wenn die Ware auf Lager ist, wird die Lieferzeit auf 2 Tage gesetzt
 		} 
 		
+		//Lieferzeit vermindern, wenn in Gießen auf Lager
+		else if (availabilityCircleColor !== "rgb(183, 28, 28)" && $( ".nw_storage-locations--is-in-stock" ).not('.nw_storage-locations__toggle')[0]["textContent"].indexOf("Gießen") > 0 ){
+		   lieferzeitentext = lieferzeitentext.replace(/[0-9]+/g, "3"); //Wenn die Ware auf Lager ist, wird die Lieferzeit auf 3 Tage gesetzt
+		} 
+		
+		//Lieferzeit vermindern, wenn in Herstellerlager auf Lager
+		else if (availabilityCircleColor !== "rgb(183, 28, 28)" && $( ".nw_storage-locations--is-in-stock" ).not('.nw_storage-locations__toggle')[0]["textContent"].indexOf("Hersteller") > 0 ){
+		   lieferzeitentext = lieferzeitentext.replace(/[0-9]+/g, "8"); //Wenn die Ware auf Lager ist, wird die Lieferzeit auf 8 Tage gesetzt
+		} 
+		
+		//Wenn nirgends verfügbar, dann Bestellware
+		else{
+			lieferzeitentext = "Derzeit nicht verfügbar. Bestellware! "+lieferzeitentext_full;
+		}
+		
 		//Lieferzeit anzeigen
 		if(window.location.pathname !== "/"){
-			$( '.nw_storage-locations--is-in-stock' ).prepend( lieferzeitentext + "<br />" ); //Die Lieferzeiten an die Klasse anhängen
-			$( ".nw_storage-locations--is-not-available").prepend( "Derzeit nicht verfügbar. Bestellware! "+lieferzeitentext_full + "<br />"); //Die Lieferzeiten an die Klasse anhängen
+			$( '.nw_storage-locations' ).prepend( lieferzeitentext + "<br />" ); //Die Lieferzeiten an die Klasse anhängen
 		}
+		
+		console.log($('.bi-circle-fill').css("color") );
 	}	
 }
 catch(e){
